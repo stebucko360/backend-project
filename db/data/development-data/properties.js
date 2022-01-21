@@ -1,1162 +1,1125 @@
-module.exports = [
+[
     {
-        "user_id": 5,
+        "user_id": 0,
         "type": "house",
-        "price": 774508,
-        "latitude": 53.83895221614165,
-        "longitude": -2.1079609480270998,
-        "beds": 3,
-        "offer_made": false,
-        "house_images": [
-            "https://elias.net",
-            "http://chet.name",
-            "http://trycia.biz"
-        ]
-    },
-    {
-        "user_id": 64,
-        "type": "house",
-        "price": 335783,
-        "latitude": 50.90909315508297,
-        "longitude": -3.903045348716604,
+        "price": 388893,
+        "latitude": 51.03436851675809,
+        "longitude": -1.9105785884811226,
         "beds": 2,
         "offer_made": false,
         "house_images": [
-            "http://evan.net",
-            "https://dustin.name"
-        ]
-    },
-    {
-        "user_id": 52,
-        "type": "house",
-        "price": 143892,
-        "latitude": 51.95108255945939,
-        "longitude": -0.5288256587432221,
-        "beds": 3,
-        "offer_made": false,
-        "house_images": [
-            "https://elmer.info"
-        ]
-    },
-    {
-        "user_id": 39,
-        "type": "flat",
-        "price": 572145,
-        "latitude": 54.968072218808075,
-        "longitude": -3.537503222203311,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "https://filiberto.org",
-            "http://dina.info",
-            "http://barney.biz",
-            "https://eleazar.info",
-            "http://florence.org"
-        ]
-    },
-    {
-        "user_id": 54,
-        "type": "studio",
-        "price": 277539,
-        "latitude": 55.927617880605666,
-        "longitude": -3.896185409704548,
-        "beds": 4,
-        "offer_made": true,
-        "house_images": [
-            "http://collin.org",
-            "http://cecile.com",
-            "https://verla.com",
-            "http://justine.net",
-            "http://bryce.name"
-        ]
-    },
-    {
-        "user_id": 76,
-        "type": "flat",
-        "price": 581709,
-        "latitude": 52.93839498185562,
-        "longitude": -4.48738174002974,
-        "beds": 2,
-        "offer_made": true,
-        "house_images": [
-            "http://enola.org",
-            "https://lucius.name",
-            "http://kitty.org"
-        ]
-    },
-    {
-        "user_id": 92,
-        "type": "flat",
-        "price": 893035,
-        "latitude": 51.90526728194752,
-        "longitude": -2.8193462968936798,
-        "beds": 2,
-        "offer_made": true,
-        "house_images": [
-            "http://chandler.biz",
-            "http://jaycee.name",
-            "https://amira.name"
-        ]
-    },
-    {
-        "user_id": 35,
-        "type": "house",
-        "price": 515659,
-        "latitude": 54.62491085970529,
-        "longitude": -1.8449575140524965,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "http://kip.name",
-            "https://toby.com"
-        ]
-    },
-    {
-        "user_id": 61,
-        "type": "flat",
-        "price": 77607,
-        "latitude": 52.37389990047277,
-        "longitude": -3.5058805291259247,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "https://misael.net",
-            "http://kendra.info",
-            "https://bill.name",
-            "http://rebeka.net",
-            "http://levi.net"
+            "https://rosalinda.org",
+            "https://raphaelle.info"
         ]
     },
     {
         "user_id": 1,
-        "type": "house",
-        "price": 715694,
-        "latitude": 52.91657337188451,
-        "longitude": -3.9483330946174893,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "https://gay.biz",
-            "https://efren.org",
-            "https://grover.net",
-            "https://georgianna.org"
-        ]
-    },
-    {
-        "user_id": 43,
         "type": "studio",
-        "price": 970685,
-        "latitude": 51.92984466688818,
-        "longitude": -5.64183633420791,
-        "beds": 1,
-        "offer_made": false,
-        "house_images": [
-            "http://clementine.name",
-            "https://maximus.net"
-        ]
-    },
-    {
-        "user_id": 44,
-        "type": "house",
-        "price": 888906,
-        "latitude": 52.26949495068133,
-        "longitude": -0.901984301403469,
+        "price": 477044,
+        "latitude": 52.25839542040404,
+        "longitude": -2.138478589456655,
         "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "http://nina.net"
-        ]
-    },
-    {
-        "user_id": 36,
-        "type": "studio",
-        "price": 159986,
-        "latitude": 53.25212440912689,
-        "longitude": -3.7071906819973,
-        "beds": 4,
         "offer_made": true,
         "house_images": [
-            "https://jackie.info",
-            "http://estrella.info"
+            "http://verdie.net",
+            "http://edwardo.biz",
+            "http://berry.name",
+            "https://payton.biz",
+            "https://myah.com"
         ]
     },
     {
-        "user_id": 79,
-        "type": "house",
-        "price": 140620,
-        "latitude": 50.877634475733906,
-        "longitude": -3.0389859440130307,
-        "beds": 1,
-        "offer_made": false,
-        "house_images": [
-            "http://bella.com",
-            "https://nellie.name"
-        ]
-    },
-    {
-        "user_id": 37,
-        "type": "house",
-        "price": 359370,
-        "latitude": 51.732922553767956,
-        "longitude": -2.345398251991786,
-        "beds": 4,
-        "offer_made": true,
-        "house_images": [
-            "http://mikayla.com",
-            "http://pink.net",
-            "https://kayla.com"
-        ]
-    },
-    {
-        "user_id": 54,
+        "user_id": 2,
         "type": "studio",
-        "price": 850519,
-        "latitude": 54.87053941977357,
-        "longitude": -4.644229957378743,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "http://lauretta.org",
-            "http://magali.com"
-        ]
-    },
-    {
-        "user_id": 71,
-        "type": "studio",
-        "price": 504955,
-        "latitude": 57.19529391200108,
-        "longitude": -4.45807285056865,
-        "beds": 5,
-        "offer_made": false,
-        "house_images": [
-            "http://lacey.biz"
-        ]
-    },
-    {
-        "user_id": 95,
-        "type": "house",
-        "price": 140443,
-        "latitude": 50.851071455591615,
-        "longitude": -3.469905832899153,
+        "price": 690112,
+        "latitude": 55.02840620435366,
+        "longitude": -4.216057170963886,
         "beds": 3,
         "offer_made": false,
         "house_images": [
-            "http://amanda.net"
+            "http://dagmar.net",
+            "http://paxton.info",
+            "http://sarah.info"
         ]
     },
     {
-        "user_id": 93,
+        "user_id": 3,
         "type": "studio",
-        "price": 714695,
-        "latitude": 51.68798162389577,
-        "longitude": -4.410197543945845,
-        "beds": 4,
+        "price": 504133,
+        "latitude": 52.86113578974402,
+        "longitude": -0.4885913105236366,
+        "beds": 2,
         "offer_made": false,
         "house_images": [
-            "http://jena.org",
-            "https://otto.biz",
-            "https://frankie.info",
-            "https://hellen.biz",
-            "http://elena.net"
+            "http://bernie.info",
+            "https://sabryna.name",
+            "http://maudie.com",
+            "https://randi.com"
         ]
     },
     {
         "user_id": 4,
-        "type": "flat",
-        "price": 997204,
-        "latitude": 53.08741802144993,
-        "longitude": -2.808865558474184,
+        "type": "studio",
+        "price": 74345,
+        "latitude": 50.99911001676873,
+        "longitude": -4.12642874273213,
         "beds": 4,
         "offer_made": false,
         "house_images": [
-            "https://berniece.com",
-            "https://april.org",
-            "http://joesph.net"
+            "https://mohamed.net",
+            "https://gretchen.org",
+            "https://libby.org",
+            "http://berta.com",
+            "http://janet.name"
         ]
     },
     {
-        "user_id": 25,
+        "user_id": 5,
         "type": "studio",
-        "price": 489821,
-        "latitude": 52.37094150020052,
-        "longitude": -7.2116627571525145,
-        "beds": 5,
-        "offer_made": false,
-        "house_images": [
-            "http://arlie.name",
-            "https://harvey.name",
-            "https://theron.net"
-        ]
-    },
-    {
-        "user_id": 50,
-        "type": "house",
-        "price": 227167,
-        "latitude": 52.70357180266475,
-        "longitude": -2.5865866773203656,
+        "price": 972445,
+        "latitude": 58.379974028229284,
+        "longitude": -2.113765508324348,
         "beds": 2,
         "offer_made": false,
         "house_images": [
-            "http://elsa.net",
-            "https://maggie.biz",
-            "http://delta.com",
-            "http://hosea.name",
-            "https://emmanuel.biz"
-        ]
-    },
-    {
-        "user_id": 15,
-        "type": "studio",
-        "price": 660233,
-        "latitude": 51.82261047077867,
-        "longitude": 0.1967871323536201,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "https://bette.info",
-            "http://gaston.com",
-            "http://alta.net",
-            "https://jennyfer.info",
-            "http://brendon.info"
+            "https://carolanne.org"
         ]
     },
     {
         "user_id": 6,
-        "type": "house",
-        "price": 852508,
-        "latitude": 56.80431092696611,
-        "longitude": -5.051163136551553,
-        "beds": 5,
-        "offer_made": false,
-        "house_images": [
-            "https://amina.name",
-            "http://rey.name",
-            "https://breanna.com",
-            "https://gerson.info",
-            "https://lilla.biz"
-        ]
-    },
-    {
-        "user_id": 30,
-        "type": "house",
-        "price": 124166,
-        "latitude": 55.908304272058736,
-        "longitude": 0.8802900188075444,
-        "beds": 2,
-        "offer_made": true,
-        "house_images": [
-            "https://brown.net",
-            "https://michaela.org"
-        ]
-    },
-    {
-        "user_id": 4,
-        "type": "studio",
-        "price": 865958,
-        "latitude": 52.59386179605322,
-        "longitude": -1.7098348274448485,
-        "beds": 5,
-        "offer_made": false,
-        "house_images": [
-            "https://ariel.name",
-            "https://virginie.name",
-            "https://antwan.net"
-        ]
-    },
-    {
-        "user_id": 25,
-        "type": "house",
-        "price": 787779,
-        "latitude": 52.2343169876902,
-        "longitude": -4.0159769508894705,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "http://okey.biz"
-        ]
-    },
-    {
-        "user_id": 43,
-        "type": "studio",
-        "price": 733581,
-        "latitude": 55.027075557286246,
-        "longitude": 0.7036103565681007,
-        "beds": 5,
-        "offer_made": false,
-        "house_images": [
-            "http://valentin.net"
-        ]
-    },
-    {
-        "user_id": 9,
-        "type": "studio",
-        "price": 889582,
-        "latitude": 51.8658135855469,
-        "longitude": -3.485055150822876,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "http://yolanda.com",
-            "https://zion.org",
-            "http://gisselle.org",
-            "https://schuyler.name",
-            "http://naomie.biz"
-        ]
-    },
-    {
-        "user_id": 55,
-        "type": "house",
-        "price": 589707,
-        "latitude": 54.54323354566579,
-        "longitude": -3.0397619494280557,
-        "beds": 5,
-        "offer_made": false,
-        "house_images": [
-            "https://bennett.com",
-            "https://cathryn.org",
-            "http://anabel.info",
-            "http://iva.info",
-            "https://layne.biz"
-        ]
-    },
-    {
-        "user_id": 81,
-        "type": "studio",
-        "price": 95942,
-        "latitude": 55.64894882219496,
-        "longitude": -5.197792268489463,
-        "beds": 2,
-        "offer_made": true,
-        "house_images": [
-            "http://victoria.org"
-        ]
-    },
-    {
-        "user_id": 60,
         "type": "flat",
-        "price": 197182,
-        "latitude": 54.560648702340046,
-        "longitude": -0.9631561741690273,
-        "beds": 3,
-        "offer_made": false,
-        "house_images": [
-            "https://jayson.name",
-            "http://serena.net",
-            "https://gretchen.net",
-            "https://arnaldo.name",
-            "http://myrtice.name"
-        ]
-    },
-    {
-        "user_id": 83,
-        "type": "studio",
-        "price": 532719,
-        "latitude": 58.53112841551945,
-        "longitude": -2.2391307888128704,
+        "price": 359835,
+        "latitude": 52.82880774553959,
+        "longitude": 0.3502531495972825,
         "beds": 4,
         "offer_made": false,
         "house_images": [
-            "http://corene.name",
-            "http://camila.biz",
-            "https://orville.info"
+            "http://hank.org",
+            "http://renee.com",
+            "https://judy.info"
         ]
     },
     {
-        "user_id": 88,
-        "type": "house",
-        "price": 392222,
-        "latitude": 50.20129961327449,
-        "longitude": -4.230927361082623,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "https://raymundo.biz",
-            "http://zack.biz",
-            "https://otilia.info",
-            "https://haskell.com"
-        ]
-    },
-    {
-        "user_id": 24,
-        "type": "flat",
-        "price": 380525,
-        "latitude": 54.297505833431806,
-        "longitude": -0.912897052356632,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "https://eliseo.info",
-            "http://opal.info",
-            "http://kacie.net",
-            "https://robb.com",
-            "http://marisa.com"
-        ]
-    },
-    {
-        "user_id": 98,
-        "type": "flat",
-        "price": 508187,
-        "latitude": 52.18954064776723,
-        "longitude": -6.96034996317089,
-        "beds": 5,
-        "offer_made": false,
-        "house_images": [
-            "https://ryder.net"
-        ]
-    },
-    {
-        "user_id": 32,
-        "type": "house",
-        "price": 864999,
-        "latitude": 57.37806037493469,
-        "longitude": -2.2254356800957407,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "https://dolly.org",
-            "https://derick.com",
-            "https://joey.com",
-            "https://luis.org",
-            "http://chadrick.org"
-        ]
-    },
-    {
-        "user_id": 67,
-        "type": "house",
-        "price": 109208,
-        "latitude": 50.05561225572309,
-        "longitude": -3.9458026702561084,
-        "beds": 5,
-        "offer_made": false,
-        "house_images": [
-            "https://tobin.biz",
-            "http://elda.org",
-            "https://ellis.biz",
-            "https://linwood.com",
-            "https://rosalinda.net"
-        ]
-    },
-    {
-        "user_id": 10,
+        "user_id": 7,
         "type": "studio",
-        "price": 875480,
-        "latitude": 51.523131851246504,
-        "longitude": -6.73106494904609,
-        "beds": 1,
-        "offer_made": true,
-        "house_images": [
-            "http://miracle.info"
-        ]
-    },
-    {
-        "user_id": 84,
-        "type": "studio",
-        "price": 352496,
-        "latitude": 50.85517162343672,
-        "longitude": -1.436281792148753,
+        "price": 329490,
+        "latitude": 50.51866474889999,
+        "longitude": -3.447183821740566,
         "beds": 3,
         "offer_made": false,
         "house_images": [
-            "https://cleveland.name",
-            "http://nella.net",
-            "http://olen.org",
-            "https://millie.net",
-            "https://dayna.net"
-        ]
-    },
-    {
-        "user_id": 65,
-        "type": "flat",
-        "price": 84220,
-        "latitude": 51.20303901545123,
-        "longitude": -3.8104615945556066,
-        "beds": 2,
-        "offer_made": true,
-        "house_images": [
-            "http://oleta.org",
-            "http://cleta.com",
-            "https://gladys.com",
-            "https://sarah.com",
-            "https://ethelyn.com"
-        ]
-    },
-    {
-        "user_id": 46,
-        "type": "house",
-        "price": 564202,
-        "latitude": 52.3308415476014,
-        "longitude": -4.834048328368993,
-        "beds": 5,
-        "offer_made": false,
-        "house_images": [
-            "https://nedra.com",
-            "https://caitlyn.com"
-        ]
-    },
-    {
-        "user_id": 73,
-        "type": "flat",
-        "price": 771369,
-        "latitude": 51.16692150507266,
-        "longitude": -3.1628327620720045,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "https://mathilde.net",
-            "https://hailey.org",
-            "https://ricky.com",
-            "https://nikko.name"
-        ]
-    },
-    {
-        "user_id": 32,
-        "type": "house",
-        "price": 206453,
-        "latitude": 54.126344980428605,
-        "longitude": -2.654551418407305,
-        "beds": 5,
-        "offer_made": false,
-        "house_images": [
-            "http://jerrold.com"
+            "http://lafayette.net"
         ]
     },
     {
         "user_id": 8,
         "type": "flat",
-        "price": 369210,
-        "latitude": 53.178362784247355,
-        "longitude": -6.017084287037303,
-        "beds": 3,
-        "offer_made": true,
-        "house_images": [
-            "http://wade.name"
-        ]
-    },
-    {
-        "user_id": 6,
-        "type": "flat",
-        "price": 464277,
-        "latitude": 56.56909070319403,
-        "longitude": -1.42474261355878,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "https://katrine.net",
-            "http://reba.net",
-            "https://tessie.net",
-            "https://carmela.name"
-        ]
-    },
-    {
-        "user_id": 85,
-        "type": "house",
-        "price": 632647,
-        "latitude": 57.75783449742162,
-        "longitude": -3.901433487174288,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "http://alfred.biz",
-            "https://aric.biz",
-            "http://oswald.name"
-        ]
-    },
-    {
-        "user_id": 35,
-        "type": "studio",
-        "price": 989080,
-        "latitude": 57.61519111892987,
-        "longitude": -4.904202137362676,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "https://etha.biz",
-            "https://bonita.info",
-            "https://carmelo.com",
-            "https://joanny.net",
-            "https://louisa.biz"
-        ]
-    },
-    {
-        "user_id": 97,
-        "type": "flat",
-        "price": 661775,
-        "latitude": 54.79051529442751,
-        "longitude": -4.5282843164062605,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "https://meggie.biz",
-            "https://oliver.name",
-            "http://deanna.info"
-        ]
-    },
-    {
-        "user_id": 36,
-        "type": "house",
-        "price": 862320,
-        "latitude": 53.31737919455431,
-        "longitude": -5.464398134772468,
+        "price": 635649,
+        "latitude": 57.6231052825835,
+        "longitude": -4.511250269461199,
         "beds": 1,
         "offer_made": false,
         "house_images": [
-            "https://abigayle.net",
-            "https://davonte.net"
+            "http://kirsten.info"
         ]
     },
     {
-        "user_id": 41,
+        "user_id": 9,
         "type": "studio",
-        "price": 533652,
-        "latitude": 50.60121512663209,
-        "longitude": -3.0822484548421176,
-        "beds": 3,
-        "offer_made": false,
-        "house_images": [
-            "https://pearlie.biz",
-            "https://norma.net",
-            "http://ignacio.net",
-            "https://fay.name",
-            "https://francesco.info"
-        ]
-    },
-    {
-        "user_id": 49,
-        "type": "studio",
-        "price": 108463,
-        "latitude": 52.91912065349669,
-        "longitude": -2.571270397470909,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "https://maybell.info",
-            "https://matteo.net",
-            "http://dawson.com"
-        ]
-    },
-    {
-        "user_id": 96,
-        "type": "studio",
-        "price": 63377,
-        "latitude": 53.487907307713684,
-        "longitude": -2.085815480031325,
+        "price": 362740,
+        "latitude": 52.94646134183589,
+        "longitude": -0.9226329883116149,
         "beds": 2,
         "offer_made": false,
         "house_images": [
-            "https://greta.biz",
-            "https://howard.com",
-            "http://aurelio.net",
-            "http://jacey.com"
+            "https://cathrine.com",
+            "https://bessie.name",
+            "http://leonora.name",
+            "http://madisyn.org",
+            "https://rhett.info"
         ]
     },
     {
-        "user_id": 72,
-        "type": "studio",
-        "price": 874887,
-        "latitude": 56.195075648736214,
-        "longitude": -0.6316956435801773,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "http://winnifred.info",
-            "https://jaleel.biz"
-        ]
-    },
-    {
-        "user_id": 41,
+        "user_id": 10,
         "type": "house",
-        "price": 600425,
-        "latitude": 58.27547113578817,
-        "longitude": -0.18308029052497865,
+        "price": 191002,
+        "latitude": 52.82753418989461,
+        "longitude": -0.6807426529163267,
         "beds": 2,
         "offer_made": false,
         "house_images": [
-            "https://nettie.org",
-            "https://turner.org",
-            "https://gilberto.com",
-            "https://earl.com",
-            "http://enrico.name"
-        ]
-    },
-    {
-        "user_id": 32,
-        "type": "house",
-        "price": 910259,
-        "latitude": 52.294282868528384,
-        "longitude": -2.4300156661771064,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "http://jon.net",
-            "http://francesco.com",
-            "http://jonas.org",
-            "http://dax.net"
-        ]
-    },
-    {
-        "user_id": 61,
-        "type": "flat",
-        "price": 268549,
-        "latitude": 53.88384498705239,
-        "longitude": -2.263698073180133,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "https://zena.com",
-            "https://ivy.biz",
-            "http://marquis.info"
-        ]
-    },
-    {
-        "user_id": 90,
-        "type": "flat",
-        "price": 935378,
-        "latitude": 54.68637842732571,
-        "longitude": -1.7689270859091621,
-        "beds": 3,
-        "offer_made": false,
-        "house_images": [
-            "https://dimitri.net",
-            "http://libbie.info",
-            "https://hyman.name",
-            "https://harmony.biz",
-            "http://johnnie.info"
-        ]
-    },
-    {
-        "user_id": 91,
-        "type": "flat",
-        "price": 977620,
-        "latitude": 55.739691048535065,
-        "longitude": -4.354593539367916,
-        "beds": 4,
-        "offer_made": true,
-        "house_images": [
-            "http://kale.net"
-        ]
-    },
-    {
-        "user_id": 23,
-        "type": "studio",
-        "price": 433507,
-        "latitude": 55.34842066917584,
-        "longitude": -4.646725255552865,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "http://buck.biz",
-            "http://regan.net",
-            "http://mariane.com"
-        ]
-    },
-    {
-        "user_id": 47,
-        "type": "flat",
-        "price": 688237,
-        "latitude": 57.36704938196302,
-        "longitude": -4.827172875256795,
-        "beds": 1,
-        "offer_made": false,
-        "house_images": [
-            "https://kassandra.biz",
-            "https://clinton.net",
-            "http://doug.name"
-        ]
-    },
-    {
-        "user_id": 35,
-        "type": "flat",
-        "price": 959092,
-        "latitude": 51.742148747226146,
-        "longitude": 0.29476764798412436,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "http://blanca.info",
-            "http://alena.com",
-            "http://kristian.org"
-        ]
-    },
-    {
-        "user_id": 30,
-        "type": "studio",
-        "price": 624596,
-        "latitude": 53.89757963414099,
-        "longitude": -7.012841442514279,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "https://marlin.net",
-            "https://noemy.com",
-            "http://selmer.com",
-            "https://chasity.net",
-            "http://gillian.net"
-        ]
-    },
-    {
-        "user_id": 68,
-        "type": "flat",
-        "price": 450740,
-        "latitude": 54.29140889660141,
-        "longitude": -4.338320181790744,
-        "beds": 1,
-        "offer_made": false,
-        "house_images": [
-            "http://ursula.org",
-            "http://selina.com",
-            "https://jack.biz",
-            "https://juliana.biz",
-            "https://elliott.net"
-        ]
-    },
-    {
-        "user_id": 29,
-        "type": "house",
-        "price": 986493,
-        "latitude": 55.72583543228001,
-        "longitude": -4.176513808315118,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "http://kristin.name",
-            "https://alysa.info"
-        ]
-    },
-    {
-        "user_id": 82,
-        "type": "house",
-        "price": 734014,
-        "latitude": 54.31494596967332,
-        "longitude": -1.3207019377027054,
-        "beds": 3,
-        "offer_made": false,
-        "house_images": [
-            "https://marcelina.info",
-            "https://mckenzie.net"
-        ]
-    },
-    {
-        "user_id": 62,
-        "type": "studio",
-        "price": 988087,
-        "latitude": 55.43911993977929,
-        "longitude": -1.3559917987594403,
-        "beds": 3,
-        "offer_made": false,
-        "house_images": [
-            "https://kenyatta.info",
-            "http://toney.info",
-            "https://austyn.name",
-            "https://brody.biz",
-            "https://easter.net"
-        ]
-    },
-    {
-        "user_id": 31,
-        "type": "flat",
-        "price": 644520,
-        "latitude": 50.99863142612635,
-        "longitude": 0.30574897264689316,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "http://eileen.com"
-        ]
-    },
-    {
-        "user_id": 93,
-        "type": "flat",
-        "price": 325751,
-        "latitude": 51.55009744947435,
-        "longitude": -2.135336332631704,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "http://rickie.name",
-            "https://johnathon.net"
-        ]
-    },
-    {
-        "user_id": 79,
-        "type": "house",
-        "price": 335621,
-        "latitude": 54.37686323787794,
-        "longitude": -6.15546389208419,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "https://isabell.com",
-            "https://chyna.org",
-            "https://maurice.net",
-            "http://mercedes.biz"
-        ]
-    },
-    {
-        "user_id": 66,
-        "type": "studio",
-        "price": 984091,
-        "latitude": 57.070289256559875,
-        "longitude": -2.4593290876182916,
-        "beds": 2,
-        "offer_made": false,
-        "house_images": [
-            "http://kale.info",
-            "http://freddy.org",
-            "https://anais.info",
-            "http://alia.net",
-            "http://verla.biz"
-        ]
-    },
-    {
-        "user_id": 27,
-        "type": "studio",
-        "price": 991585,
-        "latitude": 57.527917145271594,
-        "longitude": -4.67906348381644,
-        "beds": 3,
-        "offer_made": true,
-        "house_images": [
-            "https://moses.net"
-        ]
-    },
-    {
-        "user_id": 3,
-        "type": "house",
-        "price": 85460,
-        "latitude": 52.9892042450927,
-        "longitude": -3.8500317915347457,
-        "beds": 3,
-        "offer_made": false,
-        "house_images": [
-            "https://ramon.name",
-            "http://verla.com",
-            "http://ayana.net",
-            "http://trevion.org"
+            "http://colleen.org",
+            "https://nestor.org",
+            "http://elissa.net",
+            "https://chelsea.info"
         ]
     },
     {
         "user_id": 11,
         "type": "house",
-        "price": 201442,
-        "latitude": 52.34711426601581,
-        "longitude": -0.8068125720500259,
-        "beds": 4,
+        "price": 713723,
+        "latitude": 53.39901553325921,
+        "longitude": -3.259358201605549,
+        "beds": 1,
         "offer_made": false,
         "house_images": [
-            "https://trey.com",
-            "http://rylee.org",
-            "https://melissa.net",
-            "https://joyce.name",
-            "https://princess.info"
+            "https://vallie.net",
+            "https://vella.net",
+            "http://angus.com",
+            "http://kaia.info",
+            "http://rosalee.net"
         ]
     },
     {
-        "user_id": 1,
+        "user_id": 12,
         "type": "flat",
-        "price": 794753,
-        "latitude": 53.40035135044671,
-        "longitude": -5.276214002474468,
+        "price": 623654,
+        "latitude": 55.7063411095783,
+        "longitude": -2.794809152528816,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "http://daisha.biz",
+            "http://leila.info"
+        ]
+    },
+    {
+        "user_id": 13,
+        "type": "studio",
+        "price": 722319,
+        "latitude": 57.37279881404226,
+        "longitude": -4.081504963736623,
+        "beds": 2,
+        "offer_made": false,
+        "house_images": [
+            "http://jamil.biz",
+            "https://jacklyn.org",
+            "https://carlos.name",
+            "http://delmer.biz",
+            "https://natasha.info"
+        ]
+    },
+    {
+        "user_id": 14,
+        "type": "house",
+        "price": 350617,
+        "latitude": 57.002124366339615,
+        "longitude": -3.8574984692401415,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "http://garnet.info"
+        ]
+    },
+    {
+        "user_id": 15,
+        "type": "house",
+        "price": 742590,
+        "latitude": 56.46054901286514,
+        "longitude": -0.017937877682257408,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "http://astrid.info",
+            "https://kimberly.com",
+            "http://june.com",
+            "https://jeffery.name"
+        ]
+    },
+    {
+        "user_id": 16,
+        "type": "flat",
+        "price": 248609,
+        "latitude": 56.721056513436835,
+        "longitude": -2.8738883739093533,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "http://talon.name"
+        ]
+    },
+    {
+        "user_id": 17,
+        "type": "flat",
+        "price": 805596,
+        "latitude": 54.462580684236904,
+        "longitude": -4.098233771010461,
+        "beds": 1,
+        "offer_made": true,
+        "house_images": [
+            "http://madyson.net",
+            "https://fabiola.info"
+        ]
+    },
+    {
+        "user_id": 18,
+        "type": "flat",
+        "price": 178109,
+        "latitude": 52.815536071627726,
+        "longitude": -1.3016315107816334,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "https://wilber.info"
+        ]
+    },
+    {
+        "user_id": 19,
+        "type": "studio",
+        "price": 925689,
+        "latitude": 51.59447342545364,
+        "longitude": -3.0958201496951068,
+        "beds": 2,
+        "offer_made": false,
+        "house_images": [
+            "https://torrey.net",
+            "http://unique.com"
+        ]
+    },
+    {
+        "user_id": 20,
+        "type": "house",
+        "price": 659418,
+        "latitude": 57.743573746840404,
+        "longitude": -4.008707736075927,
+        "beds": 1,
+        "offer_made": false,
+        "house_images": [
+            "http://jesse.com",
+            "https://garrett.name",
+            "http://emerson.name"
+        ]
+    },
+    {
+        "user_id": 21,
+        "type": "flat",
+        "price": 540088,
+        "latitude": 54.44246813610342,
+        "longitude": -0.7003931378391295,
+        "beds": 2,
+        "offer_made": false,
+        "house_images": [
+            "http://gail.com",
+            "http://hermann.org",
+            "https://rogelio.info",
+            "http://catharine.com",
+            "http://claudia.net"
+        ]
+    },
+    {
+        "user_id": 22,
+        "type": "studio",
+        "price": 393826,
+        "latitude": 51.464467667215416,
+        "longitude": -3.1002306948122644,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "http://brannon.name",
+            "https://theodora.biz",
+            "http://brooklyn.org"
+        ]
+    },
+    {
+        "user_id": 23,
+        "type": "flat",
+        "price": 359479,
+        "latitude": 50.82729966877348,
+        "longitude": -0.3922880174049874,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "https://jena.org",
+            "http://candida.info",
+            "http://sandrine.com",
+            "http://mervin.org",
+            "https://emelia.com"
+        ]
+    },
+    {
+        "user_id": 24,
+        "type": "flat",
+        "price": 717509,
+        "latitude": 54.1896967899084,
+        "longitude": 0.01371612110897491,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "http://jade.name"
+        ]
+    },
+    {
+        "user_id": 25,
+        "type": "studio",
+        "price": 536671,
+        "latitude": 55.305631491044835,
+        "longitude": -1.252475585978936,
+        "beds": 1,
+        "offer_made": true,
+        "house_images": [
+            "https://alexandra.info",
+            "https://xavier.name",
+            "http://omari.com",
+            "http://elody.biz"
+        ]
+    },
+    {
+        "user_id": 26,
+        "type": "house",
+        "price": 477111,
+        "latitude": 56.065299864555634,
+        "longitude": -5.295317305955355,
+        "beds": 1,
+        "offer_made": false,
+        "house_images": [
+            "http://david.name",
+            "https://kira.com",
+            "http://lysanne.info",
+            "http://arne.com",
+            "https://mathilde.net"
+        ]
+    },
+    {
+        "user_id": 27,
+        "type": "studio",
+        "price": 519341,
+        "latitude": 50.58843929423132,
+        "longitude": -5.648251302189628,
         "beds": 5,
         "offer_made": false,
         "house_images": [
-            "http://corine.org",
-            "http://delbert.biz"
+            "http://sonny.net",
+            "http://sabrina.org"
+        ]
+    },
+    {
+        "user_id": 28,
+        "type": "flat",
+        "price": 252382,
+        "latitude": 56.882957061745905,
+        "longitude": -6.103562375394894,
+        "beds": 1,
+        "offer_made": false,
+        "house_images": [
+            "http://anne.biz",
+            "http://cassidy.net",
+            "https://ralph.biz",
+            "http://katarina.info",
+            "http://claud.org"
+        ]
+    },
+    {
+        "user_id": 29,
+        "type": "house",
+        "price": 180354,
+        "latitude": 53.10882669293484,
+        "longitude": -4.489018310561953,
+        "beds": 2,
+        "offer_made": false,
+        "house_images": [
+            "http://harold.info",
+            "http://leatha.name",
+            "http://roderick.net",
+            "http://kiel.net",
+            "http://randi.com"
+        ]
+    },
+    {
+        "user_id": 30,
+        "type": "studio",
+        "price": 281187,
+        "latitude": 55.21977537432037,
+        "longitude": -3.207864174580201,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "http://lane.info"
+        ]
+    },
+    {
+        "user_id": 31,
+        "type": "house",
+        "price": 950090,
+        "latitude": 57.99400488599502,
+        "longitude": -2.272649923262666,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "https://niko.biz"
+        ]
+    },
+    {
+        "user_id": 32,
+        "type": "flat",
+        "price": 615642,
+        "latitude": 50.415800783328,
+        "longitude": -0.7075834602323336,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "http://alexane.info",
+            "https://angelita.net"
+        ]
+    },
+    {
+        "user_id": 33,
+        "type": "house",
+        "price": 391664,
+        "latitude": 51.44065958116346,
+        "longitude": 0.821602346411284,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "https://manuela.biz",
+            "http://ronaldo.info",
+            "https://alberto.info",
+            "http://erich.name",
+            "http://clare.org"
+        ]
+    },
+    {
+        "user_id": 34,
+        "type": "house",
+        "price": 102597,
+        "latitude": 55.69951503586309,
+        "longitude": -1.8145484942605945,
+        "beds": 2,
+        "offer_made": false,
+        "house_images": [
+            "http://liliane.net",
+            "http://albin.biz",
+            "https://isabella.org",
+            "http://vallie.com",
+            "http://chadrick.org"
+        ]
+    },
+    {
+        "user_id": 35,
+        "type": "flat",
+        "price": 975888,
+        "latitude": 51.32587425441984,
+        "longitude": -4.580734142819368,
+        "beds": 1,
+        "offer_made": false,
+        "house_images": [
+            "https://jordi.biz",
+            "http://willard.com",
+            "https://obie.org",
+            "http://destany.name"
+        ]
+    },
+    {
+        "user_id": 36,
+        "type": "studio",
+        "price": 544743,
+        "latitude": 53.01218381815949,
+        "longitude": -0.6581078308638038,
+        "beds": 2,
+        "offer_made": false,
+        "house_images": [
+            "https://muriel.org",
+            "https://crawford.org",
+            "http://niko.net",
+            "http://patricia.biz",
+            "https://coralie.info"
+        ]
+    },
+    {
+        "user_id": 37,
+        "type": "studio",
+        "price": 136890,
+        "latitude": 51.93236984642248,
+        "longitude": -4.608340499660304,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "https://verla.name"
+        ]
+    },
+    {
+        "user_id": 38,
+        "type": "studio",
+        "price": 828103,
+        "latitude": 51.43519353820019,
+        "longitude": -0.5060513574802634,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "http://angus.biz"
+        ]
+    },
+    {
+        "user_id": 39,
+        "type": "flat",
+        "price": 404453,
+        "latitude": 53.73552182194378,
+        "longitude": -1.839399208437687,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "https://elliot.com",
+            "http://trudie.org",
+            "http://deja.net"
+        ]
+    },
+    {
+        "user_id": 40,
+        "type": "house",
+        "price": 710197,
+        "latitude": 58.169599776514886,
+        "longitude": -0.9311495050355143,
+        "beds": 4,
+        "offer_made": true,
+        "house_images": [
+            "http://domenick.info",
+            "http://madge.info",
+            "http://rashad.biz",
+            "https://verda.biz",
+            "http://clair.info"
         ]
     },
     {
         "user_id": 41,
         "type": "flat",
-        "price": 468715,
-        "latitude": 53.362113799571134,
-        "longitude": -2.5710415008780254,
+        "price": 475187,
+        "latitude": 51.21803965854953,
+        "longitude": -1.7609457146650884,
         "beds": 1,
         "offer_made": false,
         "house_images": [
-            "https://bethany.org"
+            "https://margaret.info",
+            "https://ricky.net"
         ]
     },
     {
-        "user_id": 56,
+        "user_id": 42,
         "type": "studio",
-        "price": 325183,
-        "latitude": 51.983564939338365,
-        "longitude": -4.570620895130519,
-        "beds": 3,
-        "offer_made": false,
-        "house_images": [
-            "https://charley.org"
-        ]
-    },
-    {
-        "user_id": 75,
-        "type": "studio",
-        "price": 858600,
-        "latitude": 56.374491668864415,
-        "longitude": -2.2828354833036126,
+        "price": 143957,
+        "latitude": 53.71928652355178,
+        "longitude": -4.885482690050076,
         "beds": 2,
         "offer_made": false,
         "house_images": [
-            "https://kimberly.biz",
-            "http://golda.com",
-            "http://parker.biz",
-            "https://xavier.name"
+            "http://andreanne.org",
+            "https://kay.biz"
+        ]
+    },
+    {
+        "user_id": 43,
+        "type": "flat",
+        "price": 737759,
+        "latitude": 57.00837533979115,
+        "longitude": -4.719767022266614,
+        "beds": 3,
+        "offer_made": true,
+        "house_images": [
+            "http://ludie.biz",
+            "https://eleonore.info"
+        ]
+    },
+    {
+        "user_id": 44,
+        "type": "studio",
+        "price": 616656,
+        "latitude": 56.02815830687801,
+        "longitude": -4.361806507790656,
+        "beds": 1,
+        "offer_made": false,
+        "house_images": [
+            "http://samanta.biz",
+            "http://manuela.net",
+            "https://nikko.biz",
+            "http://lacy.name"
+        ]
+    },
+    {
+        "user_id": 45,
+        "type": "studio",
+        "price": 487789,
+        "latitude": 52.949626507682275,
+        "longitude": -3.0061060262041117,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "http://deion.net",
+            "https://judge.biz",
+            "https://dominic.name"
+        ]
+    },
+    {
+        "user_id": 46,
+        "type": "house",
+        "price": 240279,
+        "latitude": 53.927464189254714,
+        "longitude": -1.8060216940409344,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "https://ludie.com",
+            "https://janick.net"
         ]
     },
     {
         "user_id": 47,
-        "type": "flat",
-        "price": 528504,
-        "latitude": 53.26578533437477,
-        "longitude": -3.6854885786905105,
-        "beds": 4,
+        "type": "house",
+        "price": 200224,
+        "latitude": 57.58177309035912,
+        "longitude": -4.637348681521315,
+        "beds": 1,
         "offer_made": false,
         "house_images": [
-            "http://alessandro.biz"
+            "http://roxane.name",
+            "https://meredith.org",
+            "https://jett.info"
         ]
     },
     {
-        "user_id": 23,
+        "user_id": 48,
         "type": "studio",
-        "price": 236175,
-        "latitude": 58.31982092713231,
-        "longitude": -4.067299267960055,
-        "beds": 3,
+        "price": 52001,
+        "latitude": 56.43213921122285,
+        "longitude": -2.8049517660705465,
+        "beds": 1,
         "offer_made": false,
         "house_images": [
-            "https://vergie.org",
-            "https://gaylord.info",
-            "http://kobe.name"
-        ]
-    },
-    {
-        "user_id": 89,
-        "type": "studio",
-        "price": 392134,
-        "latitude": 51.06679241922957,
-        "longitude": -5.1859084769715516,
-        "beds": 4,
-        "offer_made": false,
-        "house_images": [
-            "http://bertrand.biz",
-            "http://presley.info",
-            "http://davion.com",
-            "http://jeremie.net",
-            "https://rolando.org"
+            "http://eileen.com",
+            "http://enoch.org",
+            "https://dedrick.net",
+            "https://aurelia.biz",
+            "http://darian.com"
         ]
     },
     {
         "user_id": 49,
         "type": "flat",
-        "price": 71609,
-        "latitude": 53.64916765188486,
-        "longitude": 0.025815627225989957,
+        "price": 77541,
+        "latitude": 56.345731976937394,
+        "longitude": -4.139393471753515,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "http://sydni.biz",
+            "http://lionel.org",
+            "http://rubye.info"
+        ]
+    },
+    {
+        "user_id": 50,
+        "type": "house",
+        "price": 146431,
+        "latitude": 52.43057197261381,
+        "longitude": -4.865738537614365,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "https://kenneth.net",
+            "https://nona.name"
+        ]
+    },
+    {
+        "user_id": 51,
+        "type": "flat",
+        "price": 955162,
+        "latitude": 52.761634188976856,
+        "longitude": -0.6478642180149681,
+        "beds": 1,
+        "offer_made": false,
+        "house_images": [
+            "https://nils.name",
+            "http://pedro.info",
+            "http://annetta.name",
+            "http://ross.org",
+            "http://allie.biz"
+        ]
+    },
+    {
+        "user_id": 52,
+        "type": "flat",
+        "price": 885591,
+        "latitude": 54.90738985104851,
+        "longitude": -2.543358189756379,
+        "beds": 4,
+        "offer_made": true,
+        "house_images": [
+            "https://samir.biz",
+            "http://remington.biz",
+            "https://lafayette.com"
+        ]
+    },
+    {
+        "user_id": 53,
+        "type": "studio",
+        "price": 624123,
+        "latitude": 55.9388975369797,
+        "longitude": -0.14827833613767183,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "https://judd.name",
+            "http://mya.org",
+            "http://maryam.info",
+            "http://alejandra.biz"
+        ]
+    },
+    {
+        "user_id": 54,
+        "type": "house",
+        "price": 168777,
+        "latitude": 53.35094307500711,
+        "longitude": -3.024569867682958,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "https://lavinia.biz"
+        ]
+    },
+    {
+        "user_id": 55,
+        "type": "house",
+        "price": 149680,
+        "latitude": 52.295793181747435,
+        "longitude": -4.579381201819453,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "https://laury.biz",
+            "http://lisette.net"
+        ]
+    },
+    {
+        "user_id": 56,
+        "type": "house",
+        "price": 443626,
+        "latitude": 57.43004749444685,
+        "longitude": -3.3985231213628655,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "https://lowell.org",
+            "https://camila.org",
+            "https://tina.biz",
+            "http://elmore.name",
+            "http://cristina.net"
+        ]
+    },
+    {
+        "user_id": 57,
+        "type": "studio",
+        "price": 919347,
+        "latitude": 57.28375438868512,
+        "longitude": -2.5285797689980187,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "http://hellen.net",
+            "http://kieran.biz"
+        ]
+    },
+    {
+        "user_id": 58,
+        "type": "flat",
+        "price": 909045,
+        "latitude": 55.08054529218175,
+        "longitude": 0.9866780068181971,
         "beds": 2,
         "offer_made": false,
         "house_images": [
-            "https://edyth.name",
-            "https://adolfo.com",
-            "https://garnet.info",
-            "https://alexandrine.com"
+            "https://hubert.net"
+        ]
+    },
+    {
+        "user_id": 59,
+        "type": "studio",
+        "price": 693854,
+        "latitude": 52.814911767781155,
+        "longitude": -5.849210143995865,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "https://oceane.biz",
+            "http://floyd.biz",
+            "https://chaya.biz",
+            "https://everette.net",
+            "https://davion.biz"
+        ]
+    },
+    {
+        "user_id": 60,
+        "type": "flat",
+        "price": 603907,
+        "latitude": 50.78597044833231,
+        "longitude": -2.275121097791847,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "http://alexandrea.com"
+        ]
+    },
+    {
+        "user_id": 61,
+        "type": "house",
+        "price": 757220,
+        "latitude": 54.41420974004042,
+        "longitude": -4.241760481071175,
+        "beds": 1,
+        "offer_made": false,
+        "house_images": [
+            "http://jammie.info",
+            "http://taya.name",
+            "https://shanna.name",
+            "https://arnold.info",
+            "http://rollin.info"
+        ]
+    },
+    {
+        "user_id": 62,
+        "type": "house",
+        "price": 903817,
+        "latitude": 55.52540804117518,
+        "longitude": -3.6673676889475137,
+        "beds": 2,
+        "offer_made": false,
+        "house_images": [
+            "http://earlene.info",
+            "http://hannah.org",
+            "https://dale.info",
+            "http://ofelia.name",
+            "http://antonio.net"
+        ]
+    },
+    {
+        "user_id": 63,
+        "type": "studio",
+        "price": 162172,
+        "latitude": 50.40265111028688,
+        "longitude": -2.1352002389678377,
+        "beds": 1,
+        "offer_made": false,
+        "house_images": [
+            "https://jadon.biz"
+        ]
+    },
+    {
+        "user_id": 64,
+        "type": "house",
+        "price": 227056,
+        "latitude": 54.5667885640259,
+        "longitude": -2.7922947978688564,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "http://tony.biz",
+            "https://monserrate.com",
+            "http://doug.info"
+        ]
+    },
+    {
+        "user_id": 65,
+        "type": "flat",
+        "price": 158286,
+        "latitude": 56.45808869422241,
+        "longitude": 0.3190626000912342,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "http://lorenzo.name"
+        ]
+    },
+    {
+        "user_id": 66,
+        "type": "house",
+        "price": 586067,
+        "latitude": 51.34415536855386,
+        "longitude": -3.5238169569073383,
+        "beds": 5,
+        "offer_made": true,
+        "house_images": [
+            "https://juanita.net",
+            "http://donato.name",
+            "https://rocio.name",
+            "https://cleora.info"
+        ]
+    },
+    {
+        "user_id": 67,
+        "type": "flat",
+        "price": 399816,
+        "latitude": 51.92622348122584,
+        "longitude": -0.8886256547153133,
+        "beds": 3,
+        "offer_made": false,
+        "house_images": [
+            "http://lulu.biz",
+            "https://anne.name",
+            "https://margarete.net",
+            "https://rolando.name"
+        ]
+    },
+    {
+        "user_id": 68,
+        "type": "flat",
+        "price": 198256,
+        "latitude": 51.14490501733556,
+        "longitude": -0.5021807782794507,
+        "beds": 2,
+        "offer_made": false,
+        "house_images": [
+            "https://alexa.biz",
+            "http://nia.name",
+            "https://winona.org",
+            "http://kellen.biz"
+        ]
+    },
+    {
+        "user_id": 69,
+        "type": "flat",
+        "price": 674925,
+        "latitude": 52.182123605215125,
+        "longitude": -3.5001702670333312,
+        "beds": 2,
+        "offer_made": false,
+        "house_images": [
+            "https://vito.com",
+            "http://terrell.org",
+            "https://rickey.biz"
+        ]
+    },
+    {
+        "user_id": 70,
+        "type": "studio",
+        "price": 557041,
+        "latitude": 50.902455009959965,
+        "longitude": -3.1094464246842044,
+        "beds": 1,
+        "offer_made": false,
+        "house_images": [
+            "https://rogelio.net"
+        ]
+    },
+    {
+        "user_id": 71,
+        "type": "house",
+        "price": 93948,
+        "latitude": 51.4511204906102,
+        "longitude": -6.064956720475585,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "http://noemi.org",
+            "https://amanda.biz",
+            "https://orville.name",
+            "https://norval.net"
+        ]
+    },
+    {
+        "user_id": 72,
+        "type": "studio",
+        "price": 777953,
+        "latitude": 51.68505301227241,
+        "longitude": -0.08914213012999905,
+        "beds": 1,
+        "offer_made": false,
+        "house_images": [
+            "http://aracely.org",
+            "https://marcel.net"
+        ]
+    },
+    {
+        "user_id": 73,
+        "type": "house",
+        "price": 286388,
+        "latitude": 51.81821198389535,
+        "longitude": -2.1800461452876014,
+        "beds": 2,
+        "offer_made": false,
+        "house_images": [
+            "https://alycia.org",
+            "http://myrtle.net"
+        ]
+    },
+    {
+        "user_id": 74,
+        "type": "studio",
+        "price": 846036,
+        "latitude": 51.37166905381077,
+        "longitude": -4.538815181585974,
+        "beds": 4,
+        "offer_made": false,
+        "house_images": [
+            "http://vanessa.net",
+            "http://jacey.name",
+            "http://bill.org"
+        ]
+    },
+    {
+        "user_id": 75,
+        "type": "house",
+        "price": 698137,
+        "latitude": 52.40290939113326,
+        "longitude": -4.962350313695387,
+        "beds": 1,
+        "offer_made": false,
+        "house_images": [
+            "http://raul.biz",
+            "https://ayden.org",
+            "http://victor.net",
+            "https://jerry.org",
+            "http://brian.com"
+        ]
+    },
+    {
+        "user_id": 76,
+        "type": "flat",
+        "price": 146085,
+        "latitude": 51.666387386792834,
+        "longitude": -0.13038124052366662,
+        "beds": 3,
+        "offer_made": true,
+        "house_images": [
+            "https://amparo.org",
+            "https://jaylan.org",
+            "http://nicolas.name",
+            "https://jon.net"
+        ]
+    },
+    {
+        "user_id": 77,
+        "type": "house",
+        "price": 281115,
+        "latitude": 55.12480736277949,
+        "longitude": -2.8315919427131737,
+        "beds": 2,
+        "offer_made": false,
+        "house_images": [
+            "http://susie.org",
+            "https://clyde.info",
+            "https://gerard.org",
+            "http://fae.org"
+        ]
+    },
+    {
+        "user_id": 78,
+        "type": "flat",
+        "price": 604353,
+        "latitude": 58.28512518999973,
+        "longitude": -1.7220119850795284,
+        "beds": 2,
+        "offer_made": true,
+        "house_images": [
+            "https://edison.name",
+            "http://jamison.biz"
+        ]
+    },
+    {
+        "user_id": 79,
+        "type": "flat",
+        "price": 243931,
+        "latitude": 51.79674709746774,
+        "longitude": -4.751120972454972,
+        "beds": 2,
+        "offer_made": true,
+        "house_images": [
+            "https://mac.com"
         ]
     }
 ]
