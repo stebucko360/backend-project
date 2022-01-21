@@ -45,8 +45,8 @@ const seed = (data) => {
             property_type VARCHAR(100) NOT NULL,
             price INT NOT NULL,
             postcode VARCHAR(7) NOT NULL,
-            latitude INT NOT NULL,
-            longitude INT NOT NULL,
+            latitude DECIMAL NOT NULL,
+            longitude DECIMAL NOT NULL,
             beds INT NOT NULL,
             offer_made BOOLEAN DEFAULT 'false',
             house_images VARCHAR(500)[6]
@@ -76,6 +76,15 @@ const seed = (data) => {
         (user_id, username, password, first_name, last_name, email, profile_pic)
         VALUES
         %L;`, userData.map((item)=>[item.user_id, item.username, item.password, item.firstname, item.secondname, item.email, item.profilepic]))
+
+        return db.query(queryString)
+    }).then(()=>{
+
+        const queryString = format(`
+        INSERT INTO properties
+        (user_id, property_type, price, postcode, latitude, longitude, beds, offer_made, house_images)
+        VALUES
+        %L;`, propertyData.map((item)=>[item.user_id, item.type, item.price, item.postcode, item.latitude, item.longitude, item.beds, item.offer_made, `{${item.house_images}}`]))
 
         return db.query(queryString)
     })
