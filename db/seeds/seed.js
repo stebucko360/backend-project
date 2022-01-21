@@ -56,7 +56,7 @@ const seed = (data) => {
         return db.query(`
         CREATE TABLE chat_room(
             chat_room_id SERIAL PRIMARY KEY,
-            chatroom_name VARCHAR(100),
+            chatroom_name VARCHAR(100) DEFAULT 'Your Chat',
             messages text[]
         );`)
     }).then(()=>{
@@ -85,6 +85,15 @@ const seed = (data) => {
         (user_id, property_type, price, postcode, latitude, longitude, beds, offer_made, house_images)
         VALUES
         %L;`, propertyData.map((item)=>[item.user_id, item.type, item.price, item.postcode, item.latitude, item.longitude, item.beds, item.offer_made, `{${item.house_images}}`]))
+
+        return db.query(queryString)
+    }).then(()=>{
+
+        const queryString = format(`
+        INSERT INTO chat_room
+        (messages)
+        VALUES
+        %L;`, chatroomData.map((item)=>[`{${item.messages.map(item=>Object.values(item))}}`]))
 
         return db.query(queryString)
     })
