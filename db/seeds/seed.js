@@ -3,7 +3,7 @@ const pg = require('pg');
 const format = require('pg-format');
 
 const seed = (data) => {
-    const { userData, propertyData, chatroomData } = data;
+    const { userData, propertyData, chatroomData, junctionData } = data;
 
     //DROP TABLES IF EXIST
     
@@ -93,7 +93,17 @@ const seed = (data) => {
         INSERT INTO chat_room
         (messages)
         VALUES
-        %L;`, chatroomData.map((item)=>[`{${item.messages.map(item=>Object.values(item))}}`]))
+        %L;`, chatroomData.map((item)=>[`{${item.messages}}`]))
+
+        return db.query(queryString)
+    }).then(()=>{
+
+        const queryString = format(`
+        INSERT INTO chatroom_junction(
+            user_id, chat_room_id
+        )
+        VALUES
+        %L;`, junctionData.map(item=> [item.user_id, item.chat_room_id]))
 
         return db.query(queryString)
     })
