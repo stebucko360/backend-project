@@ -2,15 +2,17 @@ const {
   fetchUserByID,
   addNewUser,
   addLikedHouse,
-  fetchLikedProperties,
+  fetchLikedProperties
 } = require("../models/users.model");
 
 exports.getUserByID = (req, res, next) => {
   const { user_id } = req.params;
 
-  fetchUserByID(user_id).then((result) => {
-    res.status(200).send({ user: result });
-  });
+  fetchUserByID(user_id)
+    .then(result => {
+      res.status(200).send({ user: result });
+    })
+    .catch(next);
 };
 
 exports.postNewUser = (req, res, next) => {
@@ -21,7 +23,7 @@ exports.postNewUser = (req, res, next) => {
     first_name,
     last_name,
     email,
-    profile_pic,
+    profile_pic
   } = req.body;
 
   addNewUser(
@@ -32,22 +34,28 @@ exports.postNewUser = (req, res, next) => {
     last_name,
     email,
     profile_pic
-  ).then((result) => {
-    res.status(201).send({ user: result });
-  });
+  )
+    .then(result => {
+      res.status(201).send({ user: result });
+    })
+    .catch(next);
 };
 
 exports.patchLikedHouses = (req, res, next) => {
   const { user_id } = req.params;
   const { property_id } = req.body;
-  addLikedHouse(user_id, property_id).then((result) => {
-    res.status(200).send({ user: result });
-  });
+  addLikedHouse(user_id, property_id)
+    .then(result => {
+      res.status(200).send({ user: result });
+    })
+    .catch(next);
 };
 
 exports.getLikedProperties = (req, res, next) => {
   const { user_id } = req.params;
-  fetchLikedProperties(user_id).then((result) => {
-    res.status(200).send({ properties: result });
-  });
+  fetchLikedProperties(user_id)
+    .then(result => {
+      res.status(200).send({ properties: result });
+    })
+    .catch(next);
 };
