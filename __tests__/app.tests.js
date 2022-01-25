@@ -34,12 +34,20 @@ describe("GET: /api/users/:user_id ", () => {
       });
   });
   describe("Error Handling", () => {
-    test(`404: given a user id that doesn't exist, return user is doesn't exist`, () => {
+    test(`404: given a valid user id that doesn't exist, return user is doesn't exist`, () => {
       return request(app)
         .get("/api/users/404")
         .expect(404)
         .then(result => {
-          expect(result.body).toEqual({ msg: "id doesn't exist" });
+          expect(result.body).toEqual({ msg: "user_id doesn't exist" });
+        });
+    });
+    test(`404: given a invalid user id, return invalid user_id`, () => {
+      return request(app)
+        .get("/api/users/batman")
+        .expect(404)
+        .then(result => {
+          expect(result.body).toEqual({ msg: "user_id doesn't exist" });
         });
     });
   });
@@ -82,6 +90,41 @@ describe("POST: /api/users", () => {
         );
       });
   });
+  describe("Error Handling", () => {
+    test(`400: if passed invalid keys, return bad request`, () => {
+      return request(app)
+        .post("/api/users")
+        .send({
+          user_id: 55,
+          batman: "Pikachu",
+          password: "456",
+          invalid: "Pik",
+          last_name: "Achu",
+          email: "pika@pokemon.com",
+          profile_pic:
+            '"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"'
+        })
+        .then(result => {
+          expect(result.body).toEqual({ msg: "Bad Request" });
+        });
+    });
+    test(`400: if passed payload with missing keys, return bad request`, () => {
+      return request(app)
+        .post("/api/users")
+        .send({
+          user_id: 55,
+          username: "Pikachu",
+          password: "456",
+          last_name: "Achu",
+          email: "pika@pokemon.com",
+          profile_pic:
+            '"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"'
+        })
+        .then(result => {
+          expect(result.body).toEqual({ msg: "Bad Request" });
+        });
+    });
+  });
 });
 
 describe("POST: /api/properties", () => {
@@ -119,6 +162,41 @@ describe("POST: /api/properties", () => {
         );
       });
   });
+  describe("Error Handling", () => {
+    test(`400: if passed invalid keys, return bad request`, () => {
+      return request(app)
+        .post("/api/properties")
+        .send({
+          user_id: "1",
+          property_type: "house",
+          invalid: 120000,
+          postcode: "WA76HY",
+          beds: 4,
+          house_images: [
+            "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          ]
+        })
+        .then(result => {
+          expect(result.body).toEqual({ msg: "Bad Request" });
+        });
+    });
+    test(`400: if passed payload with missing keys, return bad request`, () => {
+      return request(app)
+        .post("/api/properties")
+        .send({
+          user_id: "1",
+          property_type: "house",
+          postcode: "WA76HY",
+          beds: 4,
+          house_images: [
+            "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+          ]
+        })
+        .then(result => {
+          expect(result.body).toEqual({ msg: "Bad Request" });
+        });
+    });
+  });
 });
 
 describe("GET: /api/properties", () => {
@@ -144,6 +222,7 @@ describe("GET: /api/properties", () => {
           });
         });
       });
+    describe("Error Handling", () => {});
   });
 
   test("200: returns an array of properties sorted by price 100000 - 200000", () => {
