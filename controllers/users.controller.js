@@ -1,4 +1,9 @@
-const { fetchUserByID, addNewUser } = require("../models/users.model");
+const {
+  fetchUserByID,
+  addNewUser,
+  addLikedHouse,
+  fetchLikedProperties,
+} = require("../models/users.model");
 
 exports.getUserByID = (req, res, next) => {
   const { user_id } = req.params;
@@ -29,5 +34,20 @@ exports.postNewUser = (req, res, next) => {
     profile_pic
   ).then((result) => {
     res.status(201).send({ user: result });
+  });
+};
+
+exports.patchLikedHouses = (req, res, next) => {
+  const { user_id } = req.params;
+  const { property_id } = req.body;
+  addLikedHouse(user_id, property_id).then((result) => {
+    res.status(200).send({ user: result });
+  });
+};
+
+exports.getLikedProperties = (req, res, next) => {
+  const { user_id } = req.params;
+  fetchLikedProperties(user_id).then((result) => {
+    res.status(200).send({ properties: result });
   });
 };
