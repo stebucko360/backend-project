@@ -332,6 +332,26 @@ describe("PATCH: /api/users/:user_id/likedhouses", () => {
         );
       });
   });
+  describe('Error Handling', ()=>{
+    test('400: when using an invalid user_id return user_id does not exist', ()=>{
+      return request(app)
+      .patch("/api/users/404/likedhouses")
+      .send({ property_id: 1 })
+      .expect(404)
+      .then((result)=>{
+        expect(result.body).toEqual({msg: "user_id does not exist"})
+      })
+    })
+    test('400: when using an invalid key return "Invalid property key/value"', ()=>{
+      return request(app)
+      .patch("/api/users/1/likedhouses")
+      .send({ invalid: 1 })
+      .expect(400)
+      .then((result)=>{
+        expect(result.body).toEqual({msg: "Invalid property key/value"})
+      })
+    })
+  })
 });
 
 describe("GET: /api/users/:user_id/likedhouses", () => {

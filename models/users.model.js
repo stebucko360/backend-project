@@ -35,13 +35,20 @@ exports.addNewUser = (
 };
 
 exports.addLikedHouse = (user_id, property_id) => {
+  if (!property_id){
+    return Promise.reject({status:400, msg:'Invalid property key/value'})
+  }
   return db
     .query(
       `UPDATE users SET liked_houses = array_append(liked_houses, $1) WHERE user_id = $2 RETURNING *;`,
       [property_id, user_id]
     )
     .then(result => {
-      return result.rows[0];
+      if(result.rows.length === 0){
+        return Promise.reject({status:404, msg: 'user_id does not exist'})
+      } else {
+        return result.rows[0];
+      }
     });
 };
 
