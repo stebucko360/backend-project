@@ -29,3 +29,28 @@ exports.addNewUser = (
       return result.rows[0];
     });
 };
+
+exports.addLikedHouse = (user_id, property_id) => {
+  return db
+    .query(
+      `UPDATE users SET liked_houses = array_append(liked_houses, $1) WHERE user_id = $2 RETURNING *;`,
+      [property_id, user_id]
+    )
+    .then((result) => {
+      return result.rows[0];
+    });
+};
+
+exports.fetchLikedProperties = (user_id) => {
+  return db
+    .query(`SELECT liked_houses FROM users WHERE user_id = $1;`, [user_id])
+    .then((array) => {
+      const propertyArray = array.rows[0].liked_houses;
+      return db.query(`SELECT * FROM properties WHERE house_id = ANY ($1);`, [
+        propertyArray,
+      ]);
+    })
+    .then((result) => {
+      return result.rows;
+    });
+};
