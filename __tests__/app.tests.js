@@ -332,26 +332,26 @@ describe("PATCH: /api/users/:user_id/likedhouses", () => {
         );
       });
   });
-  describe('Error Handling', ()=>{
-    test('400: when using an invalid user_id return user_id does not exist', ()=>{
+  describe("Error Handling", () => {
+    test("400: when using an invalid user_id return user_id does not exist", () => {
       return request(app)
-      .patch("/api/users/404/likedhouses")
-      .send({ property_id: 1 })
-      .expect(404)
-      .then((result)=>{
-        expect(result.body).toEqual({msg: "user_id does not exist"})
-      })
-    })
-    test('400: when using an invalid key return "Invalid property key/value"', ()=>{
+        .patch("/api/users/404/likedhouses")
+        .send({ property_id: 1 })
+        .expect(404)
+        .then((result) => {
+          expect(result.body).toEqual({ msg: "user_id does not exist" });
+        });
+    });
+    test('400: when using an invalid key return "Invalid property key/value"', () => {
       return request(app)
-      .patch("/api/users/1/likedhouses")
-      .send({ invalid: 1 })
-      .expect(400)
-      .then((result)=>{
-        expect(result.body).toEqual({msg: "Invalid property key/value"})
-      })
-    })
-  })
+        .patch("/api/users/1/likedhouses")
+        .send({ invalid: 1 })
+        .expect(400)
+        .then((result) => {
+          expect(result.body).toEqual({ msg: "Invalid property key/value" });
+        });
+    });
+  });
 });
 
 describe("GET: /api/users/:user_id/likedhouses", () => {
@@ -379,5 +379,23 @@ describe("GET: /api/users/:user_id/likedhouses", () => {
             expect(result.body.properties).toBeInstanceOf(Array);
           });
       });
+  });
+  describe("Error Handling", () => {
+    test("400: when using an invalid user_id return user_id does not exist", () => {
+      return request(app)
+        .get("/api/users/13434343/likedhouses")
+        .expect(404)
+        .then((result) => {
+          expect(result.body).toEqual({ msg: "user_id does not exist" });
+        });
+    });
+    test("400: when no user_id given", () => {
+      return request(app)
+        .get("/api/users/notid/likedhouses")
+        .expect(400)
+        .then((result) => {
+          expect(result.body).toEqual({ msg: "user_id does not exist" });
+        });
+    });
   });
 });
