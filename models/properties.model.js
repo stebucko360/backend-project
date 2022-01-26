@@ -16,43 +16,62 @@ exports.insertNewProperty = (payLoad) => {
     });
 };
 
-exports.fetchProperties = (min_price = 0, max_price, postcode, type) => {
-  let queryValues = [min_price];
-  let queryString = `SELECT * FROM properties`;
-  let count = 1;
-  queryString += ` WHERE price >= $1`;
+exports.fetchProperties = (
+  min_price = 0,
+  max_price,
+  postcode,
+  type = "all"
+) => {
+  if (
+    type === "all" &&
+    max_price === undefined &&
+    postcode === undefined &&
+    min_price === 0
+  ) {
+    return db.query(`SELECT * FROM properties;`).then((result) => {
+      return result.rows;
+    });
+  } else {
+    if (!["house", "flat", "bungalow", "studio", "all"].includes(type)) {
+      return Promise.reject({ status: 404, msg: "Invalid property_type" });
+    }
 
-  if (max_price) {
-    queryString += ` AND price <= $2`;
-    queryValues.push(max_price);
-    count++;
-  }
+    let queryValues = [min_price];
+    let queryString = `SELECT * FROM properties`;
+    let count = 1;
+    queryString += ` WHERE price >= $1`;
 
-  if (postcode) {
-    queryString += ` AND postcode LIKE `;
     if (max_price) {
-      queryString += `$3`;
-    } else {
-      queryString += `$2`;
+      queryString += ` AND price <= $2`;
+      queryValues.push(max_price);
+      count++;
     }
-    queryValues.push(`%${postcode}%`);
-    count++;
-  }
 
-  if (type) {
-    queryString += ` AND property_type = `;
-    queryValues.push(type);
-    if (count === 1) {
-      queryString += `$2`;
-    } else if (count === 2) {
-      queryString += `$3`;
-    } else {
-      queryString += `$4`;
+    if (postcode) {
+      queryString += ` AND postcode LIKE `;
+      if (max_price) {
+        queryString += `$3`;
+      } else {
+        queryString += `$2`;
+      }
+      queryValues.push(`%${postcode}%`);
+      count++;
     }
-  }
-  queryString += `;`;
 
-  return db.query(queryString, queryValues).then((result) => {
-    return result.rows;
-  });
+    if (type !== "all") {
+      queryString += ` AND property_type = `;
+      queryValues.push(type);
+      if (count === 1) {
+        queryString += `$2`;
+      } else if (count === 2) {
+        queryString += `$3`;
+      } else {
+        queryString += `$4`;
+      }
+    }
+    queryString += `;`;
+    return db.query(queryString, queryValues).then((result) => {
+      return result.rows;
+    });
+  }
 };

@@ -1,10 +1,14 @@
 const db = require("../db/connection");
 
-exports.fetchUserByID = (user_id) => {
+exports.fetchUserByID = user_id => {
   return db
     .query(`SELECT * FROM users WHERE user_id = $1`, [user_id])
-    .then((result) => {
-      return result.rows[0];
+    .then(result => {
+      if (result.rowCount === 0) {
+        return Promise.reject({ status: 404, msg: "user_id doesn't exist" });
+      } else {
+        return result.rows[0];
+      }
     });
 };
 
@@ -25,32 +29,39 @@ exports.addNewUser = (
   RETURNING *;`,
       [user_id, username, password, first_name, last_name, email, profile_pic]
     )
-    .then((result) => {
+    .then(result => {
       return result.rows[0];
     });
 };
 
 exports.addLikedHouse = (user_id, property_id) => {
+  if (!property_id){
+    return Promise.reject({status:400, msg:'Invalid property key/value'})
+  }
   return db
     .query(
       `UPDATE users SET liked_houses = array_append(liked_houses, $1) WHERE user_id = $2 RETURNING *;`,
       [property_id, user_id]
     )
-    .then((result) => {
-      return result.rows[0];
+    .then(result => {
+      if(result.rows.length === 0){
+        return Promise.reject({status:404, msg: 'user_id does not exist'})
+      } else {
+        return result.rows[0];
+      }
     });
 };
 
-exports.fetchLikedProperties = (user_id) => {
+exports.fetchLikedProperties = user_id => {
   return db
     .query(`SELECT liked_houses FROM users WHERE user_id = $1;`, [user_id])
-    .then((array) => {
+    .then(array => {
       const propertyArray = array.rows[0].liked_houses;
       return db.query(`SELECT * FROM properties WHERE house_id = ANY ($1);`, [
-        propertyArray,
+        propertyArray
       ]);
     })
-    .then((result) => {
+    .then(result => {
       return result.rows;
     });
 };
