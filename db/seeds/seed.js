@@ -127,7 +127,6 @@ const seed = (data) => {
             `{${item.messages}}`,
           ])
         );
-        console.log(chatroomData);
 
         return db.query(queryString);
       })
