@@ -43,8 +43,13 @@ io.on("connection", (socket) => {
       username: userObj.username,
       socket_id: socket.id,
       user_id: userObj.userId,
-      to: userObj.to
+      to: userObj.to,
+      user1: userObj.user1,
+      user2: userObj.user2
     };
+    console.log("this one: 666", user)
+
+    // Database
     currentUser = user;
 
     if(users[userObj.to]){
