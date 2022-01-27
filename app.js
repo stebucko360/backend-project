@@ -30,13 +30,12 @@ app.use(handleServerErrors);
 const users = {};
 
 io.on("connection", (socket) => {
- /*  console.log(socket.id); */ // x8WIv7-mJelg7on_ALbx
+  /*  console.log(socket.id); */ // x8WIv7-mJelg7on_ALbx
   let currentUser = {};
 
   socket.on("join room", (userObj) => {
-
-    socket.join(userObj.to)
-    console.log("room joined= ", userObj.to)
+    socket.join(userObj.to);
+    console.log("room joined= ", userObj.to);
     socket.broadcast.to(currentUser.room).emit("A user has joined the chat");
 
     const user = {
@@ -45,16 +44,16 @@ io.on("connection", (socket) => {
       user_id: userObj.userId,
       to: userObj.to,
       user1: userObj.user1,
-      user2: userObj.user2
+      user2: userObj.user2,
     };
-    console.log("this one: 666", user)
+    console.log("this one: 666", user);
 
     // Database
     currentUser = user;
 
-    if(users[userObj.to]){
+    if (users[userObj.to]) {
       users[userObj.to].push(user);
-    } else{
+    } else {
       users[userObj.to] = [];
       users[userObj.to].push(user);
     }
@@ -63,22 +62,21 @@ io.on("connection", (socket) => {
   });
 
   socket.on("send message", ({ content, to, sender, chatName, isChannel }) => {
-  console.log("1: got message", to)
+    console.log("1: got message", to);
     if (isChannel) {
       const payload = {
         content,
         chatName,
         sender,
         date: Date.now(),
-        to: to
+        to: to,
       };
-    console.log("2: ", payload);
+      console.log("2: ", payload);
       io.to(to).emit("new message", payload);
- /*      socket.to(to).emit("new message", payload); */
-    
+      /*      socket.to(to).emit("new message", payload); */
     } else {
       // Chat with single user
-     /*  const payload = {
+      /*  const payload = {
         content,
         chatName: sender,
         sender,
@@ -88,7 +86,9 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    socket.to(currentUser.to).emit("user left", `${currentUser.username} has left the chat`);
+    socket
+      .to(currentUser.to)
+      .emit("user left", `${currentUser.username} has left the chat`);
   });
 });
 
