@@ -3,6 +3,7 @@ const app = express();
 const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
+const { selectChatRoom } = require("./utils/socketUtils");
 const io = new Server(server, {
   cors: {
     origin: "*",
@@ -46,19 +47,22 @@ io.on("connection", (socket) => {
       user1: userObj.user1,
       user2: userObj.user2,
     };
-    console.log("this one: 666", user);
 
     // Database
     currentUser = user;
-
-    if (users[userObj.to]) {
-      users[userObj.to].push(user);
-    } else {
-      users[userObj.to] = [];
-      users[userObj.to].push(user);
-    }
-
-    io.to(userObj.to).emit("new user", users[userObj.to]);
+    selectChatRoom(user.to).then((messages) => {
+      if (users[userObj.to]) {
+        users[userObj.to].push(user);
+      } else {
+        users[userObj.to] = [];
+        users[userObj.to].push(user);
+      }
+      const payload = {
+        messages,
+        users: users[userObj.to],
+      };
+      io.to(userObj.to).emit("new user", payload);
+    });
   });
 
   socket.on("send message", ({ content, to, sender, chatName, isChannel }) => {
@@ -71,6 +75,7 @@ io.on("connection", (socket) => {
         date: Date.now(),
         to: to,
       };
+      patchNewMessage(content, sender, payload.date, chatName);
       console.log("2: ", payload);
       io.to(to).emit("new message", payload);
       /*      socket.to(to).emit("new message", payload); */

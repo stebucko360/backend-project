@@ -1,14 +1,12 @@
 const db = require("../db/connection");
-function selectChatRoom(roomName) {
+export function selectChatRoom(roomName) {
   //console.log(roomName);
   return db
     .query(`SELECT * FROM chat_room WHERE room_name = $1`, [roomName])
     .then((result) => {
       if (result.rows.length === 0) {
-        console.log(">>", roomName);
         return makeNewChatRoom(roomName);
       } else {
-        console.log("else");
         return result;
       }
     })
@@ -16,7 +14,6 @@ function selectChatRoom(roomName) {
       if (!result) {
         selectChatRoom(roomName);
       } else {
-        console.log(result.rows);
         return result.rows;
       }
     });
@@ -24,16 +21,26 @@ function selectChatRoom(roomName) {
 
 function makeNewChatRoom(roomName) {
   const users = roomName.split("-");
-  console.log(users);
+
   const stringQr = `INSERT INTO chat_room (room_name, users_in_chat) VALUES ('${roomName}', ARRAY ${[
     JSON.stringify([+users[0], +users[1]]),
   ]}) RETURNING*;`;
-  console.log(stringQr);
-  return db
-    .query(stringQr)
 
+  return db.query(stringQr);
+}
+
+export function patchNewMessage(content, sender, date, chatName) {
+  const newMessage = {
+    owner: sender,
+    body: content,
+    date_time: date,
+  };
+  return db
+    .query(
+      `UPDATE chat_room SET messages = array_append(messages, $1) WHERE room_name = $2 RETURNING *;`,
+      [newMessage, chatName]
+    )
     .then((result) => {
-      console.log("hi");
+      return result.rows;
     });
 }
-selectChatRoom("1-20");

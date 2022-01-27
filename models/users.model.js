@@ -1,6 +1,6 @@
 const db = require("../db/connection");
 
-// GET /api/users/:user_id 
+// GET /api/users/:user_id
 
 exports.fetchUserByID = (user_id) => {
   return db
@@ -61,8 +61,7 @@ exports.addLikedHouse = (user_id, property_id) => {
 // GET /api/users/:user_id/likedhouses
 
 exports.fetchLikedProperties = (user_id) => {
-
-  if(typeof +user_id !== "number" || isNaN(+user_id)){
+  if (typeof +user_id !== "number" || isNaN(+user_id)) {
     return Promise.reject({ status: 400, msg: "user_id does not exist" });
   }
 
@@ -83,6 +82,29 @@ exports.fetchLikedProperties = (user_id) => {
       return db.query(`SELECT * FROM properties WHERE house_id = ANY ($1);`, [
         propertyArray,
       ]);
+    })
+    .then((result) => {
+      return result.rows;
+    });
+};
+
+exports.fetchUserChats = (user_id) => {
+  if (typeof +user_id !== "number" || isNaN(+user_id)) {
+    return Promise.reject({ status: 400, msg: "return invalid user_id" });
+  }
+
+  return db
+    .query(`SELECT * FROM users WHERE user_id = $1;`, [user_id])
+    .then((result) => {
+      if (result.rows.length === 0) {
+        return Promise.reject({ status: 404, msg: "user_id does not exist" });
+      }
+    })
+    .then(() => {
+      return db.query(
+        `SELECT * FROM chat_room WHERE ($1) = ANY(users_in_chat);`,
+        [user_id]
+      );
     })
     .then((result) => {
       return result.rows;
