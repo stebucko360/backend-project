@@ -3,6 +3,9 @@ const {
   fetchProperties,
 } = require("../models/properties.model");
 
+
+// POST : api/properties
+
 exports.postNewProperty = (req, res, next) => {
   const payLoad = req.body;
   insertNewProperty(payLoad)
@@ -11,6 +14,8 @@ exports.postNewProperty = (req, res, next) => {
     })
     .catch(next);
 };
+
+// GET : api/properties
 
 exports.getProperties = (req, res, next) => {
   const { min_price, max_price, postcode, type } = req.query;

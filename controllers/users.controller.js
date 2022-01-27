@@ -5,6 +5,8 @@ const {
   fetchLikedProperties
 } = require("../models/users.model");
 
+// GET /api/users/:user_id 
+
 exports.getUserByID = (req, res, next) => {
   const { user_id } = req.params;
 
@@ -14,6 +16,8 @@ exports.getUserByID = (req, res, next) => {
     })
     .catch(next);
 };
+
+// POST /api/users
 
 exports.postNewUser = (req, res, next) => {
   const {
@@ -41,6 +45,8 @@ exports.postNewUser = (req, res, next) => {
     .catch(next);
 };
 
+// PATCH: /api/users/:user_id/likedhouses
+
 exports.patchLikedHouses = (req, res, next) => {
   const { user_id } = req.params;
   const { property_id } = req.body;
@@ -50,6 +56,8 @@ exports.patchLikedHouses = (req, res, next) => {
     })
     .catch(next);
 };
+
+// GET: /api/users/:user_id/likedhouses
 
 exports.getLikedProperties = (req, res, next) => {
   const { user_id } = req.params;
