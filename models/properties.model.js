@@ -1,5 +1,7 @@
 const db = require("../db/connection");
 
+// POST : api/properties
+
 exports.insertNewProperty = (payLoad) => {
   const { user_id, property_type, price, postcode, beds, house_images } =
     payLoad;
@@ -15,6 +17,8 @@ exports.insertNewProperty = (payLoad) => {
       return result.rows[0];
     });
 };
+
+// GET : api/properties
 
 exports.fetchProperties = (
   min_price = 0,

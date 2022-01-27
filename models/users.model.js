@@ -1,5 +1,7 @@
 const db = require("../db/connection");
 
+// GET /api/users/:user_id 
+
 exports.fetchUserByID = (user_id) => {
   return db
     .query(`SELECT * FROM users WHERE user_id = $1`, [user_id])
@@ -11,6 +13,8 @@ exports.fetchUserByID = (user_id) => {
       }
     });
 };
+
+// POST /api/users
 
 exports.addNewUser = (
   user_id,
@@ -33,6 +37,8 @@ exports.addNewUser = (
       return result.rows[0];
     });
 };
+
+// PATCH: /api/users/:user_id/likedhouses
 
 exports.addLikedHouse = (user_id, property_id) => {
   if (!property_id) {
