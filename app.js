@@ -18,8 +18,6 @@ const {
 } = require("./errors");
 const { disconnect } = require("process");
 
-import selectChatRoom from "./utils/socketUtils";
-
 app.use(cors());
 app.use(express.json());
 
