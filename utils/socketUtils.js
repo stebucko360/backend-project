@@ -1,6 +1,6 @@
 const db = require("../db/connection");
-export function selectChatRoom(roomName) {
-  //console.log(roomName);
+
+exports.selectChatRoom = (roomName) => {
   return db
     .query(`SELECT * FROM chat_room WHERE room_name = $1`, [roomName])
     .then((result) => {
@@ -29,18 +29,20 @@ function makeNewChatRoom(roomName) {
   return db.query(stringQr);
 }
 
-export function patchNewMessage(content, sender, date, chatName) {
+exports.patchNewMessage = (body, owner, date_time, chatName) =>{
+
   const newMessage = {
-    owner: sender,
-    body: content,
-    date_time: date,
+    owner: owner,
+    body: body,
+    date_time: date_time,
   };
+
   return db
     .query(
-      `UPDATE chat_room SET messages = array_append(messages, $1) WHERE room_name = $2 RETURNING *;`,
+      `UPDATE chat_room SET messages = messages || $1::jsonb WHERE room_name = $2 RETURNING *;`,
       [newMessage, chatName]
     )
     .then((result) => {
-      return result.rows;
+      return {messages: result.rows};
     });
 }
