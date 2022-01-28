@@ -2,7 +2,7 @@ const db = require("../db/connection");
 
 // POST : api/properties
 
-exports.insertNewProperty = (payLoad) => {
+exports.insertNewProperty = payLoad => {
   const { user_id, property_type, price, postcode, beds, house_images } =
     payLoad;
   return db
@@ -13,7 +13,7 @@ exports.insertNewProperty = (payLoad) => {
   RETURNING *;`,
       [user_id, property_type, price, postcode, beds, house_images]
     )
-    .then((result) => {
+    .then(result => {
       return result.rows[0];
     });
 };
@@ -32,7 +32,7 @@ exports.fetchProperties = (
     postcode === undefined &&
     min_price === 0
   ) {
-    return db.query(`SELECT * FROM properties;`).then((result) => {
+    return db.query(`SELECT * FROM properties;`).then(result => {
       return result.rows;
     });
   } else {
@@ -74,8 +74,21 @@ exports.fetchProperties = (
       }
     }
     queryString += `;`;
-    return db.query(queryString, queryValues).then((result) => {
+    return db.query(queryString, queryValues).then(result => {
       return result.rows;
     });
   }
+};
+
+exports.fetchPropertyById = house_id => {
+  return db
+    .query(`SELECT * FROM properties WHERE house_id = $1`, [house_id])
+    .then(result => {
+      result.rows; //?
+      if (result.rowCount === 0) {
+        return Promise.reject({ status: 404, msg: "house_id doesn't exist" });
+      } else {
+        return result.rows[0];
+      }
+    });
 };
