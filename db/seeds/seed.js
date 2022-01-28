@@ -59,7 +59,7 @@ const seed = (data) => {
         CREATE TABLE chat_room(
             room_name VARCHAR PRIMARY KEY,
             users_in_chat text[] DEFAULT array[]::text[],
-            messages text[] DEFAULT array[]::text[]
+            messages JSONB DEFAULT '{}'::jsonb
         );`);
       })
       // .then(() => {
@@ -124,10 +124,9 @@ const seed = (data) => {
           chatroomData.map((item) => [
             item.room_name,
             `{${item.users_in_chat}}`,
-            `{${item.messages}}`,
+            JSON.stringify(item.messages),
           ])
         );
-        console.log(chatroomData);
 
         return db.query(queryString);
       })

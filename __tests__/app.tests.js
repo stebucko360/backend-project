@@ -399,3 +399,34 @@ describe("GET: /api/users/:user_id/likedhouses", () => {
     });
   });
 });
+
+describe("GET: /api/users/:user_id/chats ", () => {
+  test("200: Returns an array of chats by ID", () => {
+    return request(app)
+      .get("/api/users/2/chats")
+      .expect(200)
+      .then((result) => {
+        expect("chats" in result.body).toBe(true);
+        expect(result.body.chats.length).toBe(1);
+      });
+  });
+  describe("Error Handling", () => {
+    test("400: when using an invalid user_id(not number) return invalid user_id", () => {
+      return request(app)
+        .get("/api/users/notValid/chats")
+
+        .expect(400)
+        .then((result) => {
+          expect(result.body).toEqual({ msg: "return invalid user_id" });
+        });
+    });
+    test("404: when using an user_id that doesn't exist return user_id does not exist", () => {
+      return request(app)
+        .get("/api/users/13434343/likedhouses")
+        .expect(404)
+        .then((result) => {
+          expect(result.body).toEqual({ msg: "user_id does not exist" });
+        });
+    });
+  });
+});

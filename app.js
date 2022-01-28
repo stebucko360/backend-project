@@ -3,6 +3,7 @@ const app = express();
 const http = require("http");
 const server = http.createServer(app);
 const { Server } = require("socket.io");
+const { selectChatRoom, patchNewMessage } = require("./utils/socketUtils");
 const io = new Server(server, {
   cors: {
     origin: "*",
@@ -16,6 +17,7 @@ const {
   handleCustomErrors,
   handleServerErrors,
 } = require("./errors");
+
 const { disconnect } = require("process");
 
 app.use(cors());
@@ -30,65 +32,82 @@ app.use(handleServerErrors);
 const users = {};
 
 io.on("connection", (socket) => {
-  /*  console.log(socket.id); */ // x8WIv7-mJelg7on_ALbx
+
+
   let currentUser = {};
 
   socket.on("join room", (userObj) => {
     socket.join(userObj.to);
-    console.log("room joined= ", userObj.to);
-    socket.broadcast.to(currentUser.room).emit("A user has joined the chat");
+  
+    let date = Date.now();
+
+    io.to(socket.id).emit("user joined", {
+      body: "User has joined the chat",
+      owner: "Chat Bot",
+      date_time: `${date}`
+    });
 
     const user = {
       username: userObj.username,
       socket_id: socket.id,
       user_id: userObj.userId,
-      to: userObj.to,
-      user1: userObj.user1,
-      user2: userObj.user2,
+      to: userObj.to
     };
-    console.log("this one: 666", user);
 
-    // Database
     currentUser = user;
 
-    if (users[userObj.to]) {
-      users[userObj.to].push(user);
-    } else {
-      users[userObj.to] = [];
-      users[userObj.to].push(user);
-    }
+    selectChatRoom(user.to).then((messages) => {
+      if (users[userObj.to]) {
+        users[userObj.to].push(user);
+      } else {
+        users[userObj.to] = [];
+        users[userObj.to].push(user);
+      }
+      let sendDatabaseMessages = true;
+      let payload = {};
 
-    io.to(userObj.to).emit("new user", users[userObj.to]);
+      if(sendDatabaseMessages){
+        payload = {
+          messages: JSON.stringify(messages),
+          users: users[userObj.to]
+        };
+        sendDatabaseMessages = false;
+      }else{
+        payload = {
+          users: users[userObj.to]
+        };
+      }
+      
+      io.to(socket.id).emit("new user", payload);
+    });
   });
 
-  socket.on("send message", ({ content, to, sender, chatName, isChannel }) => {
-    console.log("1: got message", to);
-    if (isChannel) {
+  socket.on("send message", ({ body, to, owner, chatName, isChannel, date_time }) => {
+
       const payload = {
-        content,
+        body: body,
         chatName,
-        sender,
-        date: Date.now(),
+        owner: owner,
+        date_time: date_time,
         to: to,
       };
-      console.log("2: ", payload);
-      io.to(to).emit("new message", payload);
-      /*      socket.to(to).emit("new message", payload); */
-    } else {
-      // Chat with single user
-      /*  const payload = {
-        content,
-        chatName: sender,
-        sender,
-      };
-      socket.to(to).emit("new message", payload); */
-    }
+      patchNewMessage(body, owner, date_time, chatName);
+      socket.to(to).emit("new message", payload);
+   
   });
 
   socket.on("disconnect", () => {
+
+    let date = Date.now();
+      
     socket
       .to(currentUser.to)
-      .emit("user left", `${currentUser.username} has left the chat`);
+      .emit("user left", {
+        body: `${currentUser.username} has left the chat`,
+        owner: "Chat Bot",
+        date_time: `${date}`,
+        personWhoLeft: currentUser.username
+      });
   });
 });
 
