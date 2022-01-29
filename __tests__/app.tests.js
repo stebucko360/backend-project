@@ -13,7 +13,7 @@ describe("GET: /api/users/:user_id ", () => {
     return request(app)
       .get("/api/users/1")
       .expect(200)
-      .then(result => {
+      .then((result) => {
         expect(result.body.user).toEqual(
           expect.objectContaining({
             user_id: "1",
@@ -29,7 +29,7 @@ describe("GET: /api/users/:user_id ", () => {
             settings_price_max: 300000,
             settings_price_min: 0,
             settings_radius: 5,
-            liked_houses: []
+            liked_houses: [],
           })
         );
       });
@@ -39,7 +39,7 @@ describe("GET: /api/users/:user_id ", () => {
       return request(app)
         .get("/api/users/404")
         .expect(404)
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "user_id doesn't exist" });
         });
     });
@@ -47,7 +47,7 @@ describe("GET: /api/users/:user_id ", () => {
       return request(app)
         .get("/api/users/batman")
         .expect(404)
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "user_id doesn't exist" });
         });
     });
@@ -66,10 +66,10 @@ describe("POST: /api/users", () => {
         last_name: "Achu",
         email: "pika@pokemon.com",
         profile_pic:
-          '"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"'
+          '"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"',
       })
       .expect(201)
-      .then(result => {
+      .then((result) => {
         expect(result.body.user).toBeInstanceOf(Object);
         expect(result.body.user).toEqual(
           expect.objectContaining({
@@ -86,7 +86,7 @@ describe("POST: /api/users", () => {
             settings_price_max: 300000,
             settings_price_min: 0,
             settings_radius: 5,
-            liked_houses: []
+            liked_houses: [],
           })
         );
       });
@@ -103,9 +103,9 @@ describe("POST: /api/users", () => {
           last_name: "Achu",
           email: "pika@pokemon.com",
           profile_pic:
-            '"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"'
+            '"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"',
         })
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "Bad Request" });
         });
     });
@@ -119,9 +119,9 @@ describe("POST: /api/users", () => {
           last_name: "Achu",
           email: "pika@pokemon.com",
           profile_pic:
-            '"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"'
+            '"https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"',
         })
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "Bad Request" });
         });
     });
@@ -139,11 +139,11 @@ describe("POST: /api/properties", () => {
         postcode: "WA76HY",
         beds: 4,
         house_images: [
-          "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-        ]
+          "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        ],
       })
       .expect(201)
-      .then(result => {
+      .then((result) => {
         expect(result.body.property).toBeInstanceOf(Object);
         expect(result.body.property).toEqual(
           expect.objectContaining({
@@ -154,11 +154,11 @@ describe("POST: /api/properties", () => {
             postcode: "WA76HY",
             beds: 4,
             house_images: [
-              "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+              "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             ],
             offer_made: false,
             longitude: "-2.66400",
-            latitude: "53.32500"
+            latitude: "53.32500",
           })
         );
       });
@@ -174,10 +174,10 @@ describe("POST: /api/properties", () => {
           postcode: "WA76HY",
           beds: 4,
           house_images: [
-            "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-          ]
+            "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          ],
         })
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "Bad Request" });
         });
     });
@@ -190,10 +190,10 @@ describe("POST: /api/properties", () => {
           postcode: "WA76HY",
           beds: 4,
           house_images: [
-            "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-          ]
+            "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          ],
         })
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "Bad Request" });
         });
     });
@@ -205,11 +205,11 @@ describe("GET: /api/properties", () => {
     return request(app)
       .get("/api/properties")
       .expect(200)
-      .then(result => {
+      .then((result) => {
         expect("properties" in result.body).toBe(true);
         expect(result.body.properties.length).toBe(6);
         expect(result.body.properties).toBeInstanceOf(Array);
-        result.body.properties.forEach(property => {
+        result.body.properties.forEach((property) => {
           expect.objectContaining({
             user_id: expect.any(Number),
             type: expect.any(String),
@@ -219,7 +219,7 @@ describe("GET: /api/properties", () => {
             longitude: expect.any(String),
             beds: expect.any(Number),
             offer_made: expect.any(Boolean),
-            house_images: expect.any(Array)
+            house_images: expect.any(Array),
           });
         });
       });
@@ -229,11 +229,11 @@ describe("GET: /api/properties", () => {
     return request(app)
       .get("/api/properties?min_price=100000&max_price=200000")
       .expect(200)
-      .then(result => {
+      .then((result) => {
         expect("properties" in result.body).toBe(true);
         expect(result.body.properties.length).toBe(4);
         expect(result.body.properties).toBeInstanceOf(Array);
-        result.body.properties.forEach(property => {
+        result.body.properties.forEach((property) => {
           expect(property.price >= 100000 && property.price <= 200000).toBe(
             true
           );
@@ -245,7 +245,7 @@ describe("GET: /api/properties", () => {
             longitude: expect.any(String),
             beds: expect.any(Number),
             offer_made: expect.any(Boolean),
-            house_images: expect.any(Array)
+            house_images: expect.any(Array),
           });
         });
       });
@@ -255,11 +255,11 @@ describe("GET: /api/properties", () => {
     return request(app)
       .get("/api/properties?postcode=WA7")
       .expect(200)
-      .then(result => {
+      .then((result) => {
         expect("properties" in result.body).toBe(true);
         expect(result.body.properties.length).toBe(2);
         expect(result.body.properties).toBeInstanceOf(Array);
-        result.body.properties.forEach(property => {
+        result.body.properties.forEach((property) => {
           expect(property.postcode.substring(0, 3)).toBe("WA7");
         });
       });
@@ -269,11 +269,11 @@ describe("GET: /api/properties", () => {
     return request(app)
       .get("/api/properties?type=flat")
       .expect(200)
-      .then(result => {
+      .then((result) => {
         expect("properties" in result.body).toBe(true);
         expect(result.body.properties.length).toBe(2);
         expect(result.body.properties).toBeInstanceOf(Array);
-        result.body.properties.forEach(property => {
+        result.body.properties.forEach((property) => {
           expect(property.property_type).toBe("flat");
         });
       });
@@ -283,7 +283,7 @@ describe("GET: /api/properties", () => {
       return request(app)
         .get("/api/properties?type=invalid")
         .expect(404)
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "Invalid property_type" });
         });
     });
@@ -291,7 +291,7 @@ describe("GET: /api/properties", () => {
       return request(app)
         .get("/api/properties?max_price=apple")
         .expect(400)
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "Invalid value" });
         });
     });
@@ -299,7 +299,7 @@ describe("GET: /api/properties", () => {
       return request(app)
         .get("/api/properties?min_price=apple")
         .expect(400)
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "Invalid value" });
         });
     });
@@ -311,7 +311,7 @@ describe("GET: /api/properties/:house_id", () => {
     return request(app)
       .get("/api/properties/1")
       .expect(200)
-      .then(result => {
+      .then((result) => {
         expect(result.body).toEqual({
           house_id: 1,
           user_id: "1",
@@ -324,8 +324,8 @@ describe("GET: /api/properties/:house_id", () => {
           offer_made: false,
           house_images: [
             "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            "https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          ]
+            "https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          ],
         });
       });
   });
@@ -335,7 +335,7 @@ describe("GET: /api/properties/:house_id", () => {
       return request(app)
         .get("/api/properties/404")
         .expect(404)
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "house_id doesn't exist" });
         });
     });
@@ -343,7 +343,7 @@ describe("GET: /api/properties/:house_id", () => {
       return request(app)
         .get("/api/properties/404")
         .expect(404)
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "house_id doesn't exist" });
         });
     });
@@ -356,7 +356,7 @@ describe("PATCH: /api/users/:user_id/likedhouses", () => {
       .patch("/api/users/1/likedhouses")
       .send({ property_id: 1 })
       .expect(200)
-      .then(result => {
+      .then((result) => {
         expect(result.body.user).toEqual(
           expect.objectContaining({
             user_id: "1",
@@ -372,7 +372,7 @@ describe("PATCH: /api/users/:user_id/likedhouses", () => {
             settings_price_max: 300000,
             settings_price_min: 0,
             settings_radius: 5,
-            liked_houses: [1]
+            liked_houses: [1],
           })
         );
       });
@@ -383,7 +383,7 @@ describe("PATCH: /api/users/:user_id/likedhouses", () => {
         .patch("/api/users/404/likedhouses")
         .send({ property_id: 1 })
         .expect(404)
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "user_id does not exist" });
         });
     });
@@ -392,7 +392,7 @@ describe("PATCH: /api/users/:user_id/likedhouses", () => {
         .patch("/api/users/1/likedhouses")
         .send({ invalid: 1 })
         .expect(400)
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "Invalid property key/value" });
         });
     });
@@ -418,7 +418,7 @@ describe("GET: /api/users/:user_id/likedhouses", () => {
         return request(app)
           .get("/api/users/1/likedhouses")
           .expect(200)
-          .then(result => {
+          .then((result) => {
             expect("properties" in result.body).toBe(true);
             expect(result.body.properties.length).toBe(2);
             expect(result.body.properties).toBeInstanceOf(Array);
@@ -430,7 +430,7 @@ describe("GET: /api/users/:user_id/likedhouses", () => {
       return request(app)
         .get("/api/users/13434343/likedhouses")
         .expect(404)
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "user_id does not exist" });
         });
     });
@@ -438,7 +438,7 @@ describe("GET: /api/users/:user_id/likedhouses", () => {
       return request(app)
         .get("/api/users/notid/likedhouses")
         .expect(400)
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "user_id does not exist" });
         });
     });
@@ -450,7 +450,7 @@ describe("GET: /api/users/:user_id/chats ", () => {
     return request(app)
       .get("/api/users/2/chats")
       .expect(200)
-      .then(result => {
+      .then((result) => {
         expect("chats" in result.body).toBe(true);
         expect(result.body.chats.length).toBe(1);
       });
@@ -461,7 +461,7 @@ describe("GET: /api/users/:user_id/chats ", () => {
         .get("/api/users/notValid/chats")
 
         .expect(400)
-        .then(result => {
+        .then((result) => {
           expect(result.body).toEqual({ msg: "return invalid user_id" });
         });
     });
@@ -469,7 +469,56 @@ describe("GET: /api/users/:user_id/chats ", () => {
       return request(app)
         .get("/api/users/13434343/likedhouses")
         .expect(404)
-        .then(result => {
+        .then((result) => {
+          expect(result.body).toEqual({ msg: "user_id does not exist" });
+        });
+    });
+  });
+});
+
+describe("PATCH: /api/settings/:user_id", () => {
+  test("should patch the new address to the user's table", () => {
+    
+    const body = { settings_postcode: 'M1 7ED' };
+ 
+    return request(app)
+      .patch("/api/settings/2")
+      .send(body)
+      .expect(200)
+      .then((result) => {
+          expect(result.body.settings).toEqual(
+            expect.objectContaining({
+            settings_postcode: 'M1 7ED',
+            settings_latitude: "53.472221",
+            settings_longitude: "-2.238111",
+          })
+        );
+    });
+  });
+
+
+  describe("Error Handling", () => {
+    test("400: when using an invalid postcode return invalid address", () => {
+
+      const body = { settings_postcode: 'pess29uiZ' };
+
+      return request(app)
+        .patch("/api/settings/2")
+        .send(body)
+        .expect(400)
+        .then((result) => {
+          expect(result.body.msg).toBe("Invalid postcode");
+        });
+    });
+    test("404: when using an user_id that doesn't exist return user_id does not exist", () => {
+     
+      const body = { settings_postcode: 'M1 7ED' };
+
+      return request(app)
+        .patch("/api/settings/22")
+        .send(body)
+        .expect(400)
+        .then((result) => {
           expect(result.body).toEqual({ msg: "user_id does not exist" });
         });
     });

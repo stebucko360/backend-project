@@ -27,6 +27,7 @@
     "express": "^4.17.2",
     "jest": "^27.4.7",
     "jest-sorted": "^1.0.14",
+    "node-geocoder": "^3.28.0",
     "nodemon": "^2.0.15",
     "pg": "^8.7.1",
     "pg-format": "^1.0.4",

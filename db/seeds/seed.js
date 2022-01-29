@@ -33,6 +33,8 @@ const seed = (data) => {
             profile_pic VARCHAR(150) NOT NULL,
             liked_houses INT ARRAY DEFAULT array[]::INT[],
             settings_postcode VARCHAR(7) DEFAULT 'M17ED',
+            settings_latitude DECIMAL DEFAULT '53.32500',
+            settings_longitude DECIMAL DEFAULT '-2.66400',
             settings_radius INT DEFAULT '5',
             settings_price_min INT DEFAULT '0',
             settings_price_max INT DEFAULT '300000',
