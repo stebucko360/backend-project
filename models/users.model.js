@@ -88,6 +88,19 @@ exports.fetchLikedProperties = (user_id) => {
     });
 };
 
+// DELETE /api/users/:user_id/likedhouses
+
+exports.removeLikedProperty = (user_id, property_id) => {
+  return db
+    .query(
+      `UPDATE users SET liked_houses = array_remove(liked_houses, $1) WHERE user_id = $2;`,
+      [property_id, user_id]
+    )
+    .then((result) => {
+      return result;
+    });
+};
+
 exports.fetchUserChats = (user_id) => {
   if (typeof +user_id !== "number" || isNaN(+user_id)) {
     return Promise.reject({ status: 400, msg: "return invalid user_id" });

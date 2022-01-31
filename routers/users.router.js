@@ -5,6 +5,7 @@ const {
   patchLikedHouses,
   getLikedProperties,
   getUserChats,
+  deleteLikedProperty,
 } = require("../controllers/users.controller.js");
 
 const usersRouter = express.Router();
@@ -14,7 +15,8 @@ usersRouter.route("/").post(postNewUser);
 usersRouter
   .route("/:user_id/likedhouses")
   .patch(patchLikedHouses)
-  .get(getLikedProperties);
+  .get(getLikedProperties)
+  .delete(deleteLikedProperty);
 
 usersRouter.route("/:user_id/chats").get(getUserChats);
 module.exports = usersRouter;

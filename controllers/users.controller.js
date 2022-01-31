@@ -4,6 +4,7 @@ const {
   addLikedHouse,
   fetchLikedProperties,
   fetchUserChats,
+  removeLikedProperty,
 } = require("../models/users.model");
 
 // GET /api/users/:user_id
@@ -65,6 +66,18 @@ exports.getLikedProperties = (req, res, next) => {
   fetchLikedProperties(user_id)
     .then((result) => {
       res.status(200).send({ properties: result });
+    })
+    .catch(next);
+};
+
+// DELETE: /api/users/:user_id/likedhouses
+
+exports.deleteLikedProperty = (req, res, next) => {
+  const { user_id } = req.params;
+  const { property_id } = req.body;
+  removeLikedProperty(user_id, property_id)
+    .then((result) => {
+      res.status(204).send({});
     })
     .catch(next);
 };

@@ -478,29 +478,26 @@ describe("GET: /api/users/:user_id/chats ", () => {
 
 describe("PATCH: /api/settings/:user_id", () => {
   test("should patch the new address to the user's table", () => {
-    
-    const body = { settings_postcode: 'M1 7ED' };
- 
+    const body = { settings_postcode: "M1 7ED" };
+
     return request(app)
       .patch("/api/settings/2")
       .send(body)
       .expect(200)
       .then((result) => {
-          expect(result.body.settings).toEqual(
-            expect.objectContaining({
-            settings_postcode: 'M1 7ED',
+        expect(result.body.settings).toEqual(
+          expect.objectContaining({
+            settings_postcode: "M1 7ED",
             settings_latitude: "53.472221",
             settings_longitude: "-2.238111",
           })
         );
-    });
+      });
   });
-
 
   describe("Error Handling", () => {
     test("400: when using an invalid postcode return invalid address", () => {
-
-      const body = { settings_postcode: 'pess29uiZ' };
+      const body = { settings_postcode: "pess29uiZ" };
 
       return request(app)
         .patch("/api/settings/2")
@@ -511,13 +508,53 @@ describe("PATCH: /api/settings/:user_id", () => {
         });
     });
     test("404: when using an user_id that doesn't exist return user_id does not exist", () => {
-     
-      const body = { settings_postcode: 'M1 7ED' };
+      const body = { settings_postcode: "M1 7ED" };
 
       return request(app)
         .patch("/api/settings/22")
         .send(body)
         .expect(400)
+        .then((result) => {
+          expect(result.body).toEqual({ msg: "user_id does not exist" });
+        });
+    });
+  });
+});
+
+describe("DELETE: /:user_id/likedhouses", () => {
+  test("When provided an array value, remove that value", () => {
+    return request(app)
+      .patch("/api/users/1/likedhouses")
+      .send({ property_id: 1 })
+      .then(() => {
+        return request(app)
+          .delete("/api/users/1/likedhouses")
+          .send({ property_id: 1 })
+          .expect(204)
+          .then((result) => {
+            return db
+              .query(`SELECT liked_houses FROM users WHERE user_id = '1';`)
+              .then((res) => {
+                expect(res.rows[0]).toEqual({ liked_houses: [] });
+              });
+          });
+      });
+  });
+  describe("Error handling", () => {
+    test("400: When provided an invalid key/value return 'invalid key/value'", () => {
+      return request(app)
+        .patch("/api/users/1/likedhouses")
+        .send({ invalid: 1 })
+        .expect(400)
+        .then((result) => {
+          expect(result.body).toEqual({ msg: "Invalid property key/value" });
+        });
+    });
+    test("404: When provided a non existant user_id return 'user_id does not exist'", () => {
+      return request(app)
+        .patch("/api/users/666/likedhouses")
+        .send({ property_id: 1 })
+        .expect(404)
         .then((result) => {
           expect(result.body).toEqual({ msg: "user_id does not exist" });
         });
