@@ -8,6 +8,14 @@ const {
 
 exports.postNewProperty = (req, res, next) => {
   const payLoad = req.body;
+
+  const postCodeRegEx = /^([A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$/gi;
+
+  if (!postCodeRegEx.test(payLoad.postcode)) {
+    return res.status(400).send({ status: 400, msg: "Invalid postcode" });
+  }
+
+
   insertNewProperty(payLoad)
     .then(result => {
       res.status(201).send({ property: result });
