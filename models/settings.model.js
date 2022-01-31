@@ -5,7 +5,7 @@ const geocoder = require("../utils/nodeGeocoder");
 
 exports.updateSettingsPostcode = async (settings_postcode, user_id) => {
 
-
+console.log(4444, settings_postcode);
 
   const addressDataResults = await Promise.all([geocoder.geocode(settings_postcode)]); 
 

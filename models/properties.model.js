@@ -1,17 +1,21 @@
 const db = require("../db/connection");
+const geocoder = require("../utils/nodeGeocoder");
 
 // POST : api/properties
 
-exports.insertNewProperty = payLoad => {
-  const { user_id, property_type, price, postcode, beds, house_images } =
-    payLoad;
+exports.insertNewProperty = async (payLoad) => {
+  
+  const { user_id, property_type, price, postcode, beds, house_images } = payLoad;
+
+ const addressDataResults = await Promise.all([geocoder.geocode(postcode)]); 
+  
   return db
     .query(
       `INSERT INTO properties
-  (user_id, property_type, price, postcode, beds, house_images)
-  VALUES ($1, $2, $3, $4, $5, $6)
+  (user_id, property_type, price, postcode, beds, house_images, latitude, longitude)
+  VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
   RETURNING *;`,
-      [user_id, property_type, price, postcode, beds, house_images]
+      [user_id, property_type, price, addressDataResults[0][0].zipcode, beds, house_images, addressDataResults[0][0].latitude, addressDataResults[0][0].longitude]
     )
     .then(result => {
       return result.rows[0];

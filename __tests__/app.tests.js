@@ -136,7 +136,7 @@ describe("POST: /api/properties", () => {
         user_id: "1",
         property_type: "house",
         price: 120000,
-        postcode: "WA76HY",
+        postcode: "M1 7ED",
         beds: 4,
         house_images: [
           "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
@@ -151,14 +151,14 @@ describe("POST: /api/properties", () => {
             user_id: "1",
             property_type: "house",
             price: 120000,
-            postcode: "WA76HY",
+            postcode: "M1 7ED",
             beds: 4,
             house_images: [
               "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             ],
             offer_made: false,
-            longitude: "-2.66400",
-            latitude: "53.32500",
+            longitude: "-2.238111",
+            latitude: "53.472221",
           })
         );
       });
@@ -171,7 +171,7 @@ describe("POST: /api/properties", () => {
           user_id: "1",
           property_type: "house",
           invalid: 120000,
-          postcode: "WA76HY",
+          postcode: "M1 7ED",
           beds: 4,
           house_images: [
             "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
@@ -187,7 +187,7 @@ describe("POST: /api/properties", () => {
         .send({
           user_id: "1",
           property_type: "house",
-          postcode: "WA76HY",
+          postcode: "M1 7ED",
           beds: 4,
           house_images: [
             "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
