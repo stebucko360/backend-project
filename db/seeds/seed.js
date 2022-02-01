@@ -31,7 +31,7 @@ const seed = (data) => {
             last_name VARCHAR(100) NOT NULL,
             email VARCHAR(100) NOT NULL,
             profile_pic VARCHAR(150) NOT NULL,
-            liked_houses JSONB DEFAULT '[]'::jsonb,
+            liked_houses INT ARRAY DEFAULT array[]::INT[],
             settings_postcode VARCHAR(7) DEFAULT 'M17ED',
             settings_latitude DECIMAL DEFAULT '53.32500',
             settings_longitude DECIMAL DEFAULT '-2.66400',
@@ -85,10 +85,10 @@ const seed = (data) => {
             item.user_id,
             item.username,
             item.password,
-            item.first_name,
-            item.last_name,
+            item.firstname,
+            item.secondname,
             item.email,
-            item.profile_pic,
+            item.profilepic,
           ])
         );
 

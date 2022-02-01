@@ -82,7 +82,7 @@ io.on("connection", (socket) => {
     });
   });
 
-  socket.on("send message", ({ body, to, owner, chatName, isChannel, date_time, user_id }) => {
+  socket.on("send message", ({ body, to, owner, chatName, isChannel, date_time }) => {
 
       const payload = {
         body: body,
@@ -90,9 +90,8 @@ io.on("connection", (socket) => {
         owner: owner,
         date_time: date_time,
         to: to,
-        user_id: user_id
       };
-      patchNewMessage(body, user_id, date_time, chatName);
+      patchNewMessage(body, owner, date_time, chatName);
       socket.to(to).emit("new message", payload);
    
   });

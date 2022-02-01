@@ -352,26 +352,9 @@ describe("GET: /api/properties/:house_id", () => {
 
 describe("PATCH: /api/users/:user_id/likedhouses", () => {
   test("200: add a house_id to likedusers array returning the user with updated array", () => {
-
-    const house = {house: {
-      house_id: 2,
-      user_id: 1,
-      type: "house",
-      price: 150000,
-      postcode: "WA76DD",
-      latitude: "12",
-      longitude: "55",
-      beds: 4,
-      offer_made: false,
-      house_images: [
-        "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-      ]
-    }}
-
     return request(app)
       .patch("/api/users/1/likedhouses")
-      .send(house)
+      .send({ property_id: 1 })
       .expect(200)
       .then((result) => {
         expect(result.body.user).toEqual(
@@ -389,34 +372,17 @@ describe("PATCH: /api/users/:user_id/likedhouses", () => {
             settings_price_max: 300000,
             settings_price_min: 0,
             settings_radius: 5,
-            liked_houses: expect.any(Array)
+            liked_houses: [1],
           })
         );
       });
   });
   describe("Error Handling", () => {
     test("400: when using an invalid user_id return user_id does not exist", () => {
-
-      const house = {house: {
-        house_id: 2,
-        user_id: 1,
-        type: "house",
-        price: 150000,
-        postcode: "WA76DD",
-        latitude: "12",
-        longitude: "55",
-        beds: 4,
-        offer_made: false,
-        house_images: [
-          "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        ]
-      }}
-
       return request(app)
         .patch("/api/users/404/likedhouses")
-        .send(house)
-        .expect(400)
+        .send({ property_id: 1 })
+        .expect(404)
         .then((result) => {
           expect(result.body).toEqual({ msg: "user_id does not exist" });
         });
@@ -435,45 +401,27 @@ describe("PATCH: /api/users/:user_id/likedhouses", () => {
 
 describe("GET: /api/users/:user_id/likedhouses", () => {
   test("200: Returns an array of properties by ID provided in users liked houses", () => {
-
-    const house = {house: {
-      house_id: 2,
-      user_id: 1,
-      type: "house",
-      price: 150000,
-      postcode: "WA76DD",
-      latitude: "12",
-      longitude: "55",
-      beds: 4,
-      offer_made: false,
-      house_images: [
-        "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-      ]
-    }}
-
     return request(app)
       .patch("/api/users/1/likedhouses")
-      .send(house)
+      .send({ property_id: 1 })
       .then(() => {
         return request(app)
           .patch("/api/users/1/likedhouses")
-          .send(house);
+          .send({ property_id: 2 });
       })
       .then(() => {
         return request(app)
           .patch("/api/users/2/likedhouses")
-          .send(house);
+          .send({ property_id: 3 });
       })
       .then(() => {
         return request(app)
           .get("/api/users/1/likedhouses")
           .expect(200)
           .then((result) => {
-          
             expect("properties" in result.body).toBe(true);
-            expect(result.body.properties[0].liked_houses.length).toBe(2);
-            expect(result.body.properties[0].liked_houses).toBeInstanceOf(Array);
+            expect(result.body.properties.length).toBe(2);
+            expect(result.body.properties).toBeInstanceOf(Array);
           });
       });
   });
@@ -481,7 +429,7 @@ describe("GET: /api/users/:user_id/likedhouses", () => {
     test("400: when using an invalid user_id return user_id does not exist", () => {
       return request(app)
         .get("/api/users/13434343/likedhouses")
-        .expect(400)
+        .expect(404)
         .then((result) => {
           expect(result.body).toEqual({ msg: "user_id does not exist" });
         });
@@ -519,7 +467,7 @@ describe("GET: /api/users/:user_id/chats ", () => {
     });
     test("404: when using an user_id that doesn't exist return user_id does not exist", () => {
       return request(app)
-        .get("/api/users/13434343/chats")
+        .get("/api/users/13434343/likedhouses")
         .expect(404)
         .then((result) => {
           expect(result.body).toEqual({ msg: "user_id does not exist" });
@@ -642,30 +590,13 @@ describe("PATCH: /api/settings/:user_id", () => {
 
 describe("DELETE: /:user_id/likedhouses", () => {
   test("When provided an array value, remove that value", () => {
-
-    const house = {house: {
-      house_id: 2,
-      user_id: 1,
-      type: "house",
-      price: 150000,
-      postcode: "WA76DD",
-      latitude: "12",
-      longitude: "55",
-      beds: 4,
-      offer_made: false,
-      house_images: [
-        "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-      ]
-    }}
-
     return request(app)
       .patch("/api/users/1/likedhouses")
-      .send(house)
+      .send({ property_id: 1 })
       .then(() => {
         return request(app)
           .delete("/api/users/1/likedhouses")
-          .send({ property_id: 2 })
+          .send({ property_id: 1 })
           .expect(204)
           .then((result) => {
             return db
@@ -686,29 +617,11 @@ describe("DELETE: /:user_id/likedhouses", () => {
           expect(result.body).toEqual({ msg: "Invalid property key/value" });
         });
     });
-    test("400: When provided a non existant user_id return 'user_id does not exist'", () => {
-
-      const house = {house: {
-        house_id: 2,
-        user_id: 1,
-        type: "house",
-        price: 150000,
-        postcode: "WA76DD",
-        latitude: "12",
-        longitude: "55",
-        beds: 4,
-        offer_made: false,
-        house_images: [
-          "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          "https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        ]
-      }}
-
-
+    test("404: When provided a non existant user_id return 'user_id does not exist'", () => {
       return request(app)
         .patch("/api/users/666/likedhouses")
-        .send(house)
-        .expect(400)
+        .send({ property_id: 1 })
+        .expect(404)
         .then((result) => {
           expect(result.body).toEqual({ msg: "user_id does not exist" });
         });
