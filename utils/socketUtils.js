@@ -1,3 +1,4 @@
+const { user } = require("pg/lib/defaults");
 const db = require("../db/connection");
 
 exports.selectChatRoom = (roomName) => {
@@ -22,17 +23,22 @@ exports.selectChatRoom = (roomName) => {
 function makeNewChatRoom(roomName) {
   const users = roomName.split("-");
 
-  const stringQr = `INSERT INTO chat_room (room_name, users_in_chat) VALUES ('${roomName}', ARRAY ${[
-    JSON.stringify([+users[0], +users[1]]),
-  ]}) RETURNING*;`;
+  const addGoogleTag = users.map(user => {
+    if(user.length > 10){
+      user = `google-oauth2|${user}`;
+    }
+    return user;
+  })
 
+  const stringQr = `INSERT INTO chat_room (room_name, users_in_chat) VALUES ('${roomName}', ARRAY ['${addGoogleTag[0]}', '${addGoogleTag[1]}']) RETURNING*;`;
+ 
   return db.query(stringQr);
 }
 
-exports.patchNewMessage = (body, owner, date_time, chatName) =>{
+exports.patchNewMessage = (body, user_id, date_time, chatName) =>{
 
   const newMessage = {
-    owner: owner,
+    owner: user_id,
     body: body,
     date_time: date_time,
   };

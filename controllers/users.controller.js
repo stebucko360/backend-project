@@ -7,6 +7,7 @@ const {
   removeLikedProperty,
 } = require("../models/users.model");
 
+const { checkIfUserExists } = require('../utils/testingUtils');
 // GET /api/users/:user_id
 
 exports.getUserByID = (req, res, next) => {
@@ -51,9 +52,17 @@ exports.postNewUser = (req, res, next) => {
 
 exports.patchLikedHouses = (req, res, next) => {
   const { user_id } = req.params;
-  const { property_id } = req.body;
-  addLikedHouse(user_id, property_id)
-    .then((result) => {
+  const { house } = req.body;
+
+  if(!house){
+    return res.status(400).send({ msg: "Invalid property key/value" })
+  }
+
+  const checkUser = Promise.all([checkIfUserExists(user_id)]);
+
+  checkUser.then(() => {
+    return addLikedHouse(user_id, house);
+  }).then((result) => {
       res.status(200).send({ user: result });
     })
     .catch(next);
@@ -63,8 +72,13 @@ exports.patchLikedHouses = (req, res, next) => {
 
 exports.getLikedProperties = (req, res, next) => {
   const { user_id } = req.params;
-  fetchLikedProperties(user_id)
-    .then((result) => {
+
+
+const checkUser = Promise.all([checkIfUserExists(user_id)]);
+
+checkUser.then(() => {
+  return fetchLikedProperties(user_id)
+}).then((result) => {
       res.status(200).send({ properties: result });
     })
     .catch(next);
@@ -75,8 +89,13 @@ exports.getLikedProperties = (req, res, next) => {
 exports.deleteLikedProperty = (req, res, next) => {
   const { user_id } = req.params;
   const { property_id } = req.body;
-  removeLikedProperty(user_id, property_id)
-    .then((result) => {
+
+
+const checkUser = Promise.all([checkIfUserExists(user_id)]);
+
+checkUser.then(() => {
+  return removeLikedProperty(user_id, property_id)
+  }).then((result) => {
       res.status(204).send({});
     })
     .catch(next);
