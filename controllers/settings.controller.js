@@ -2,26 +2,31 @@ const { updateSettingsPostcode } = require("../models/settings.model");
 const { checkIfUserExists } = require("../utils/testingUtils");
 // PATCH: /api/settings/:user_id
 
-exports.patchSettingsPostcode = (req, res, next) => {
+exports.patchSettings = (req, res, next) => {
   const { user_id } = req.params;
-  const { settings_postcode } = req.body;
+  const {
+    settings_postcode,
+    settings_min_price,
+    settings_max_price,
+    settings_house_type,
+    settings_radius,
+  } = req.body;
 
-  const postCodeRegEx = /^([A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}|GIR ?0A{2})$/gi;
-
-  if (!postCodeRegEx.test(settings_postcode)) {
-    return res.status(400).send({ status: 400, msg: "Invalid postcode" });
-  }
-
-  const checkUserName = Promise.all([checkIfUserExists(user_id)]);
-
-  checkUserName
-    .then(() => {
-      return updateSettingsPostcode(settings_postcode, user_id);
-    })
-    .then((result) => {
+  return Promise.all([
+    checkIfUserExists(user_id),
+    updateSettingsPostcode(
+      settings_postcode,
+      user_id,
+      settings_min_price,
+      settings_max_price,
+      settings_house_type,
+      settings_radius
+    ),
+  ])
+    .then(([, result]) => {
       res.status(200).send({ settings: result });
     })
     .catch((err) => {
-      next(err)
+      next(err);
     });
 };
