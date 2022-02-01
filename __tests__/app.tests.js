@@ -547,6 +547,73 @@ describe("PATCH: /api/settings/:user_id", () => {
       });
   });
 
+  test("200: if passed a min price, update min_price and return updated user", () => {
+    const body = { settings_min_price: 150000 };
+    return request(app)
+      .patch("/api/settings/2")
+      .send(body)
+      .expect(200)
+      .then((result) => {
+        expect(result.body.settings).toEqual(
+          expect.objectContaining({
+            settings_price_max: 300000,
+            settings_price_min: 150000,
+            settings_postcode: "M1 7ED",
+            settings_latitude: "53.472221",
+            settings_longitude: "-2.238111",
+          })
+        );
+      });
+  });
+  test("200: if passed a max price, update max_price and return updated user", () => {
+    const body = { settings_max_price: 500000 };
+    return request(app)
+      .patch("/api/settings/2")
+      .send(body)
+      .expect(200)
+      .then((result) => {
+        expect(result.body.settings).toEqual(
+          expect.objectContaining({
+            settings_price_max: 500000,
+            settings_price_min: 0,
+            settings_postcode: "M1 7ED",
+            settings_latitude: "53.472221",
+            settings_longitude: "-2.238111",
+          })
+        );
+      });
+  });
+
+  test("200: if passed a house type, update settings_house_type and return updated user", () => {
+    const body = { settings_house_type: "flat" };
+    return request(app)
+      .patch("/api/settings/2")
+      .send(body)
+      .expect(200)
+      .then((result) => {
+        expect(result.body.settings).toEqual(
+          expect.objectContaining({
+            settings_house_type: "flat",
+          })
+        );
+      });
+  });
+
+  test("200: if passed a radius, update settings_radius and return updated user", () => {
+    const body = { settings_radius: 8 };
+    return request(app)
+      .patch("/api/settings/2")
+      .send(body)
+      .expect(200)
+      .then((result) => {
+        expect(result.body.settings).toEqual(
+          expect.objectContaining({
+            settings_radius: 8,
+          })
+        );
+      });
+  });
+
   describe("Error Handling", () => {
     test("400: when using an invalid postcode return invalid address", () => {
       const body = { settings_postcode: "pess29uiZ" };
