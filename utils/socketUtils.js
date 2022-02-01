@@ -17,20 +17,23 @@ exports.selectChatRoom = (roomName) => {
         return result.rows;
       }
     });
-}
+};
 
 function makeNewChatRoom(roomName) {
   const users = roomName.split("-");
 
-  const stringQr = `INSERT INTO chat_room (room_name, users_in_chat) VALUES ('${roomName}', ARRAY ${[
-    JSON.stringify([+users[0], +users[1]]),
-  ]}) RETURNING*;`;
+  const addGoogleTag = users.map((user) => {
+    if (user.length > 10) {
+      user = `google-oauth2|${user}`;
+    }
+    return user;
+  });
 
+  const stringQr = `INSERT INTO chat_room (room_name, users_in_chat) VALUES ('${roomName}', ARRAY ['${addGoogleTag[0]}', '${addGoogleTag[1]}']) RETURNING*;`;
   return db.query(stringQr);
 }
 
-exports.patchNewMessage = (body, owner, date_time, chatName) =>{
-
+exports.patchNewMessage = (body, owner, date_time, chatName) => {
   const newMessage = {
     owner: owner,
     body: body,
@@ -43,6 +46,6 @@ exports.patchNewMessage = (body, owner, date_time, chatName) =>{
       [newMessage, chatName]
     )
     .then((result) => {
-      return {messages: result.rows};
+      return { messages: result.rows };
     });
-}
+};
