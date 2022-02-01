@@ -28,6 +28,7 @@ function makeNewChatRoom(roomName) {
     }
     return user;
   });
+  //
 
   const stringQr = `INSERT INTO chat_room (room_name, users_in_chat) VALUES ('${roomName}', ARRAY ['${addGoogleTag[0]}', '${addGoogleTag[1]}']) RETURNING*;`;
   return db.query(stringQr);
