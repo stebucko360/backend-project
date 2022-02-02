@@ -610,7 +610,7 @@ describe("DELETE: /:user_id/likedhouses", () => {
   describe("Error handling", () => {
     test("400: When provided an invalid key/value return 'invalid key/value'", () => {
       return request(app)
-        .patch("/api/users/1/likedhouses")
+        .delete("/api/users/1/likedhouses")
         .send({ invalid: 1 })
         .expect(400)
         .then((result) => {
@@ -619,11 +619,20 @@ describe("DELETE: /:user_id/likedhouses", () => {
     });
     test("404: When provided a non existant user_id return 'user_id does not exist'", () => {
       return request(app)
-        .patch("/api/users/666/likedhouses")
+        .delete("/api/users/666/likedhouses")
         .send({ property_id: 1 })
         .expect(404)
         .then((result) => {
-          expect(result.body).toEqual({ msg: "user_id does not exist" });
+          expect(result.body).toEqual({ msg: "user_id doesn't exist" });
+        });
+    });
+    test("404: When provided a non existant property_id return 'house_id doesn't exist'", () => {
+      return request(app)
+        .delete("/api/users/1/likedhouses")
+        .send({ property_id: 1234 })
+        .expect(404)
+        .then((result) => {
+          expect(result.body).toEqual({ msg: "house_id doesn't exist" });
         });
     });
   });
