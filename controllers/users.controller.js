@@ -1,3 +1,4 @@
+const { fetchPropertyById } = require("../models/properties.model");
 const {
   fetchUserByID,
   addNewUser,
@@ -75,8 +76,12 @@ exports.getLikedProperties = (req, res, next) => {
 exports.deleteLikedProperty = (req, res, next) => {
   const { user_id } = req.params;
   const { property_id } = req.body;
-  removeLikedProperty(user_id, property_id)
-    .then((result) => {
+  Promise.all([
+    removeLikedProperty(user_id, property_id),
+    fetchUserByID(user_id),
+    fetchPropertyById(property_id),
+  ])
+    .then(([result]) => {
       res.status(204).send({});
     })
     .catch(next);
